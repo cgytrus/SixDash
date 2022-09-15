@@ -1,6 +1,8 @@
 # 6Dash
 An API and an optimization mod for [3Dash](https://delugedrop.itch.io/3dash)
 
+[Русский](README-ru.md)
+
 ## Features
 - Gizmos
 - Level rendering optimization
@@ -12,7 +14,7 @@ An API and an optimization mod for [3Dash](https://delugedrop.itch.io/3dash)
 2. Move the script to the game's folder
 3. Run the script by right-clicking on it and selecting `Run with Powershell`
 4. Once it is done executing, you can delete the script file
-5. Download [SixDash](https://github.com/cgytrus/SixDash/releases/latest)
+5. Download [6Dash](https://github.com/cgytrus/SixDash/releases/latest)
 6. Extract the folder from the archive into the game's folder
 
 **This repo is using [popcron/gizmos](https://github.com/popcron/gizmos),
