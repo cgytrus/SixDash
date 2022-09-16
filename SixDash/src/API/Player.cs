@@ -17,6 +17,7 @@ namespace SixDash.API;
 public static class Player {
     public static float initialSpeed { get; private set; }
     public static AudioSource? music { get; private set; }
+    public static float musicOffset { get; private set; }
 
     public static event Action<PlayerScript>? playerSpawn;
     public static event Action<PlayerScript>? playerDeath;
@@ -63,8 +64,11 @@ public static class Player {
     }
 
     private static void PlayerAwake() {
+        bool firstTime = !music;
         GameObject musicObj = GameObject.FindGameObjectWithTag("Music");
         music = musicObj ? musicObj.GetComponent<AudioSource>() : null;
+        if(firstTime && music)
+            musicOffset = music!.time;
     }
 
     private static IEnumerator ResetMaximumDeltaTimeDelayed() {
@@ -88,8 +92,10 @@ public static class Player {
         Transform transform = self.transform;
         Object.Destroy(transform.parent.parent.gameObject);
         Object.Instantiate(self.DeathFX, transform.position, transform.rotation);
-        if(music)
+        if(music) {
             music!.Stop();
+            music.time = musicOffset;
+        }
         playerDeath?.Invoke(self);
     }
 
