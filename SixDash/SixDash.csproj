@@ -8,6 +8,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>10.0</LangVersion>
     <Nullable>enable</Nullable>
+    <DefineConstants>UNITY_STANDALONE_WIN</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

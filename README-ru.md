@@ -4,7 +4,7 @@ API и мод на оптимизацию для [3Dash](https://delugedrop.itch
 [English](README.md)
 
 ## Фичи
-- Gizmos
+- Gizmos (через [popcron/gizmos](https://github.com/popcron/gizmos))
 - Оптимизация отрисковки уровней
 - Сглаженные блоки
 - Другие полезноcти для разработчиков модов для 3Dash
@@ -17,5 +17,8 @@ API и мод на оптимизацию для [3Dash](https://delugedrop.itch
 5. Скачайте [6Dash](https://github.com/cgytrus/SixDash/releases/latest)
 6. Распакуйте папку из архива в папку с игрой
 
-**Этот репозиторий использует [popcron/gizmos](https://github.com/popcron/gizmos),
-который использует лицензию [MIT](https://github.com/popcron/gizmos/blob/master/LICENSE)**
+## Другие использованные репозитории
+- [popcron/gizmos](https://github.com/popcron/gizmos)
+  ([MIT](https://github.com/popcron/gizmos/blob/master/LICENSE))
+- [Bunny83/UnityWindowsFileDrag-Drop](https://github.com/Bunny83/UnityWindowsFileDrag-Drop)
+  ([MIT](https://github.com/Bunny83/UnityWindowsFileDrag-Drop/blob/master/LICENSE))

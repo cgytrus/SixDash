@@ -4,7 +4,7 @@ An API and an optimization mod for [3Dash](https://delugedrop.itch.io/3dash)
 [Русский](README-ru.md)
 
 ## Features
-- Gizmos
+- Gizmos (via [popcron/gizmos](https://github.com/popcron/gizmos))
 - Level rendering optimization
 - Curved blocks
 - Other utilities useful for 3Dash mod developers
@@ -17,5 +17,8 @@ An API and an optimization mod for [3Dash](https://delugedrop.itch.io/3dash)
 5. Download [6Dash](https://github.com/cgytrus/SixDash/releases/latest)
 6. Extract the folder from the archive into the game's folder
 
-**This repo is using [popcron/gizmos](https://github.com/popcron/gizmos),
-which is licensed under the [MIT](https://github.com/popcron/gizmos/blob/master/LICENSE) license**
+## Other used repositories
+- [popcron/gizmos](https://github.com/popcron/gizmos)
+  ([MIT](https://github.com/popcron/gizmos/blob/master/LICENSE))
+- [Bunny83/UnityWindowsFileDrag-Drop](https://github.com/Bunny83/UnityWindowsFileDrag-Drop)
+  ([MIT](https://github.com/Bunny83/UnityWindowsFileDrag-Drop/blob/master/LICENSE))
