@@ -68,7 +68,7 @@ public static class Player {
         GameObject musicObj = GameObject.FindGameObjectWithTag("Music");
         music = musicObj ? musicObj.GetComponent<AudioSource>() : null;
         if(firstTime && music)
-            musicOffset = music!.time;
+            musicOffset = music!.time == 0f ? LevelEditor.songStartTime / 1000f : music.time;
     }
 
     private static IEnumerator ResetMaximumDeltaTimeDelayed() {
