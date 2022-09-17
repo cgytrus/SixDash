@@ -124,6 +124,7 @@ public class Chunk {
         }
     }
 
+    public bool active { get; private set; } = true;
     public IReadOnlyDictionary<Vector3Int, ItemInfo> items => _items;
     public IReadOnlyList<(ItemInfo, GameObject, Transform, bool)> itemObjects => _itemObjects;
 
@@ -138,7 +139,6 @@ public class Chunk {
 
     private float _maxRenderX;
     private float _minRenderX;
-    private bool _active = true;
     private int _outRenderIndex;
     private int _inRenderIndex;
 
@@ -333,17 +333,17 @@ public class Chunk {
     }
 
     private void SetActive() {
-        if(_active)
+        if(active)
             return;
-        _active = true;
+        active = true;
         if(_parentObj)
             _parentObj!.SetActive(true);
     }
 
     private void SetInactive() {
-        if(!_active)
+        if(!active)
             return;
-        _active = false;
+        active = false;
         if(_parentObj)
             _parentObj!.SetActive(false);
     }
