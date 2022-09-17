@@ -20,7 +20,7 @@ public class GizmosCamera : MonoBehaviour {
         ConfigFile config = Plugin.instance!.Config;
 
         _enabled = config.Bind("Gizmos", "Enabled", true, "");
-        _enabled.SettingChanged += (_, _) => { Gizmos.Enabled = _enabled.Value; };
+        _enabled.SettingChanged += (_, _) => { SetEnabled(_enabled.Value); };
 
         _alwaysOnTop = config.Bind("Gizmos", "AlwaysOnTop", true, "");
         _alwaysOnTop.SettingChanged += (_, _) => { SetAlwaysOnTop(_alwaysOnTop.Value); };
@@ -28,13 +28,19 @@ public class GizmosCamera : MonoBehaviour {
 
     private void Awake() {
         _transform = transform;
-        Gizmos.Enabled = _enabled.Value;
+        SetEnabled(_enabled.Value);
         SetAlwaysOnTop(_alwaysOnTop.Value);
+    }
+
+    private void SetEnabled(bool value) {
+        Gizmos.Enabled = value;
+        if(_camera)
+            _camera!.enabled = value && _alwaysOnTop.Value;
     }
 
     private void SetAlwaysOnTop(bool value) {
         if(_camera)
-            _camera!.enabled = value;
+            _camera!.enabled = value && _enabled.Value;
         if(value) {
             Gizmos.CameraFilter += GizmosCameraFilter;
             Gizmos.CameraFilter -= MainCameraFilter;
@@ -49,7 +55,7 @@ public class GizmosCamera : MonoBehaviour {
     private bool MainCameraFilter(Object camera) => camera != _camera;
 
     private void Update() {
-        if(!_transform)
+        if(!_enabled.Value || !_transform)
             return;
         if(!_followTransform) {
             Camera? mainCamera = FindObjectsOfType<Camera>().FirstOrDefault(cam => cam != _camera);
