@@ -14,6 +14,7 @@ using Object = UnityEngine.Object;
 
 namespace SixDash;
 
+[PublicAPI]
 public class Chunk {
     private const float OutAnimSpeed = 1.8f;
     private const float InAnimSpeed = 7.7f;
@@ -22,7 +23,7 @@ public class Chunk {
     private const float InAnimTime = 1f / InAnimSpeed;
 
     [PublicAPI]
-    private class ItemInfo {
+    public class ItemInfo {
         public ItemInfo(string id, Vector3Int position, int rotation, VertexPath path, EndOfPathInstruction endOfPath) {
             this.id = id;
             this.position = position;
@@ -123,6 +124,9 @@ public class Chunk {
         }
     }
 
+    public IReadOnlyDictionary<Vector3Int, ItemInfo> items => _items;
+    public IReadOnlyList<(ItemInfo, GameObject, Transform, bool)> itemObjects => _itemObjects;
+
     private readonly Dictionary<Vector3Int, ItemInfo> _items = new();
     private readonly GameObject? _parentObj;
     private readonly Transform? _parent;
@@ -138,7 +142,7 @@ public class Chunk {
     private int _outRenderIndex;
     private int _inRenderIndex;
 
-    public Chunk(VertexPath path, EndOfPathInstruction endOfPath, IReadOnlyDictionary<string, Material> materials,
+    internal Chunk(VertexPath path, EndOfPathInstruction endOfPath, IReadOnlyDictionary<string, Material> materials,
         IReadOnlyDictionary<string, Outline> outlines) {
         _path = path;
         _endOfPath = endOfPath;
@@ -271,7 +275,7 @@ public class Chunk {
         return neighbor.CanCullFaceAgainstModel(item, face);
     }
 
-    public void FixedUpdate(float renderMin, float renderMax) {
+    internal void FixedUpdate(float renderMin, float renderMax) {
         if(renderMax < _minRenderX || renderMin > _maxRenderX) {
             SetInactive();
             return;
