@@ -16,8 +16,6 @@ namespace SixDash.API;
 [PublicAPI]
 public static class Player {
     public static float initialSpeed { get; private set; }
-    public static AudioSource? music { get; private set; }
-    public static float musicOffset { get; private set; }
 
     public static event Action<PlayerScript>? playerSpawn;
     public static event Action<PlayerScript>? playerDeath;
@@ -50,25 +48,15 @@ public static class Player {
     }
 
     private static void PlayerScriptAwake(On.PlayerScript.orig_Awake orig, PlayerScript self) {
-        PlayerAwake();
         orig(self);
         playerSpawn?.Invoke(self);
         Plugin.StartGlobalCoroutine(ResetMaximumDeltaTimeDelayed());
     }
 
     private static void PlayerScriptEditorAwake(On.PlayerScriptEditor.orig_Awake orig, PlayerScriptEditor self) {
-        PlayerAwake();
         orig(self);
         playerSpawn?.Invoke(self);
         Plugin.StartGlobalCoroutine(ResetMaximumDeltaTimeDelayed());
-    }
-
-    private static void PlayerAwake() {
-        bool firstTime = !music;
-        GameObject musicObj = GameObject.FindGameObjectWithTag("Music");
-        music = musicObj ? musicObj.GetComponent<AudioSource>() : null;
-        if(firstTime && music)
-            musicOffset = music!.time == 0f ? LevelEditor.songStartTime / 1000f : music.time;
     }
 
     private static IEnumerator ResetMaximumDeltaTimeDelayed() {
@@ -92,9 +80,9 @@ public static class Player {
         Transform transform = self.transform;
         Object.Destroy(transform.parent.parent.gameObject);
         Object.Instantiate(self.DeathFX, transform.position, transform.rotation);
-        if(music) {
-            music!.Stop();
-            music.time = musicOffset;
+        if(Music.music) {
+            Music.music!.Stop();
+            Music.music.time = Music.offset;
         }
         playerDeath?.Invoke(self);
     }

@@ -23,6 +23,7 @@ public class Plugin : BaseUnityPlugin {
         Logger.LogInfo("Applying patches");
         API.World.Patch();
         Player.Patch();
+        Music.Patch();
         Util.ApplyAllPatches();
     }
 
