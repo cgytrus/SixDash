@@ -16,11 +16,11 @@ namespace SixDash;
 
 [PublicAPI]
 public class Chunk {
-    private const float OutAnimSpeed = 1.8f;
-    private const float InAnimSpeed = 7.7f;
+    public const float OutAnimSpeed = 1.8f;
+    public const float InAnimSpeed = 7.7f;
 
-    private const float OutAnimTime = 1f / OutAnimSpeed;
-    private const float InAnimTime = 1f / InAnimSpeed;
+    public const float OutAnimTime = 1f / OutAnimSpeed;
+    public const float InAnimTime = 1f / InAnimSpeed;
 
     [PublicAPI]
     public class ItemInfo {
@@ -295,11 +295,15 @@ public class Chunk {
             }
             if(renderMin < item.position.x)
                 break;
-            float length = item.outAnimationEnd - item.position.x;
-            float t = (renderMin - item.position.x) / length;
-            t = Util.ApplyEasing(t, Util.Easing.Exponential, Util.EasingMode.Out, 0f);
-            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, t);
+            transform.localScale = ScaleOut(renderMin, item.outAnimationEnd, item.position.x);
         }
+    }
+
+    public static Vector3 ScaleOut(float renderMin, float animationEnd, float posX) {
+        float length = animationEnd - posX;
+        float t = (renderMin - posX) / length;
+        t = Util.ApplyEasing(t, Util.Easing.Exponential, Util.EasingMode.Out, 0f);
+        return Vector3.Lerp(Vector3.one, Vector3.zero, t);
     }
 
     private void ProcessRenderMax(float renderMax) {
@@ -314,11 +318,15 @@ public class Chunk {
                 continue;
             }
             obj.SetActive(true);
-            float length = item.inAnimationEnd - item.position.x;
-            float t = (renderMax - item.position.x) / length;
-            t = Util.ApplyEasing(t, Util.Easing.Exponential, Util.EasingMode.Out, 0f);
-            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+            transform.localScale = ScaleIn(renderMax, item.inAnimationEnd, item.position.x);
         }
+    }
+
+    public static Vector3 ScaleIn(float renderMax, float animationEnd, float posX) {
+        float length = animationEnd - posX;
+        float t = (renderMax - posX) / length;
+        t = Util.ApplyEasing(t, Util.Easing.Exponential, Util.EasingMode.Out, 0f);
+        return Vector3.Lerp(Vector3.zero, Vector3.one, t);
     }
 
     internal void ResetRenderIndex() {
