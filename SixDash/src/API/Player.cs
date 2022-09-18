@@ -60,14 +60,13 @@ public static class Player {
     }
 
     private static IEnumerator ResetMaximumDeltaTimeDelayed() {
-        float saved = Time.maximumDeltaTime;
         Time.maximumDeltaTime = 0f;
         // it's 3 frames
         // don't ask why.
         yield return null;
         yield return null;
         yield return null;
-        Time.maximumDeltaTime = saved;
+        Time.maximumDeltaTime = 0.2f;
     }
 
     private static void PlayerScriptDie(On.PlayerScript.orig_Die orig, PlayerScript self, bool deathOverride) {
