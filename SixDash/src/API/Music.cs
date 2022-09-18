@@ -38,7 +38,7 @@ public static class Music {
             _pulseCounter = 0f;
         };
 
-        World.levelUpdate += () => {
+        World.levelUpdate += (_, _) => {
             UpdateMeteringInfo();
             UpdatePulse();
         };

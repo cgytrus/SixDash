@@ -26,7 +26,8 @@ public static class World {
     public static event Action? levelLoading;
     public static event Action? levelLoaded;
     public static event Action<string, Vector3Int, int, GameObject?>? itemLoaded;
-    public static event Action? levelUpdate;
+    public static event Action<float, float>? levelUpdate;
+    public static event Action<float, float>? levelFixedUpdate;
 
     public const float ColorChangeSpeed = 1.8f;
     public record struct ColorChangerData(float startDistance, float endDistance, Color color);
@@ -274,7 +275,7 @@ public static class World {
             material.SetFloat(renderMinProp, renderMin);
             material.SetFloat(renderMaxProp, renderMax);
         }
-        levelUpdate?.Invoke();
+        levelUpdate?.Invoke(renderMin, renderMax);
     }
 
     private static void FixedUpdateLevel(float renderDistance) {
@@ -282,5 +283,6 @@ public static class World {
         float renderMax = PathFollower.distanceTravelled + renderDistance;
         foreach(Chunk chunk in chunks.Values)
             chunk.FixedUpdate(renderMin, renderMax);
+        levelFixedUpdate?.Invoke(renderMin, renderMax);
     }
 }
