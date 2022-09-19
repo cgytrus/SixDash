@@ -21,8 +21,6 @@ namespace SixDash;
 public static class Util {
     internal static ManualLogSource? logger { get; set; }
 
-    public static readonly string moddedStreamingAssetsPath = Path.Combine(Application.streamingAssetsPath, "Modded");
-
     public static Object? FindResourceOfTypeWithName(Type type, string name) {
         // ReSharper disable once LoopCanBeConvertedToQuery
         foreach(Object obj in Resources.FindObjectsOfTypeAll(type)) {
