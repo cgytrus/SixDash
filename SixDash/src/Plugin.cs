@@ -25,6 +25,10 @@ public class Plugin : BaseUnityPlugin {
         Player.Patch();
         Music.Patch();
         Util.ApplyAllPatches();
+
+        Logger.LogInfo("Initializing UI");
+        UI.Setup();
+        UI.AddVersionText($"6Dash v{PluginInfo.PLUGIN_VERSION}");
     }
 
     private void Start() {
