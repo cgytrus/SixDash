@@ -46,6 +46,7 @@ internal class NoReloadOnRespawn : IPatch {
         };
 
         On.ColorChangerEditor.Update += ColorChangerEditorUpdate;
+        On.EffectSphereScript.Update += EffectSphereScriptUpdate;
 
         On.LevelManager.Update += (_, self) => {
             Color.RGBToHSV(DistanceToColor(self.levelColor, PathFollower.distanceTravelled), out float h, out float s, out float v);
@@ -75,6 +76,14 @@ internal class NoReloadOnRespawn : IPatch {
         if(self.gameObject.TryGetComponent(out FlatItem flatItem))
             self.myColor = self.GetColorAtValues(flatItem.y, flatItem.angle);
         self.spriteRenderer.color = self.myColor;
+    }
+
+    private static void EffectSphereScriptUpdate(On.EffectSphereScript.orig_Update orig, EffectSphereScript self) {
+        self.transform.localScale -= Vector3.one * (Time.deltaTime * 3f);
+        if(self.transform.localScale.x > 0f)
+            return;
+        self.transform.localScale = Vector3.one * 2f;
+        self.gameObject.SetActive(false);
     }
 
     private static Color DistanceToColor(Color startColor, float distance) {
@@ -110,6 +119,7 @@ internal class NoReloadOnRespawn : IPatch {
             orb.cooldown = savedOrbs is null ? 0f : savedOrbs[i];
             orb.activated = orb.cooldown > 0f;
             orb.onHit.SetActive(orb.activated);
+            orb.onHit.GetComponentInChildren<EffectSphereScript>(true).gameObject.SetActive(!orb.activated);
         }
         for(int i = 0; i < World.levelPads.Count; i++) {
             PadScript pad = World.levelPads[i];
