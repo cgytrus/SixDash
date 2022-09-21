@@ -250,8 +250,9 @@ public class Chunk {
             int trianglesOffset = vertices.Count;
 
             foreach(Vector3 vertex in face.vertices) {
-                //vertices.Add(item.worldPosition + item.worldRotation * vertex);
-                vertices.Add(item.VertexToWorldSpace(vertex));
+                // TODO: find a better way to fix this
+                // offset vertically to fix noticeable z-fighting
+                vertices.Add(item.VertexToWorldSpace(vertex) + new Vector3(0f, position.x % 100f / 10000f, 0f));
                 colors.Add(color);
                 fakeUvs.Add(fakeUv);
             }
