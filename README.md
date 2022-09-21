@@ -1,7 +1,7 @@
 # 6Dash
 An API and an optimization mod for [3Dash](https://delugedrop.itch.io/3dash)
 
-[Русский](README-ru.md)
+[Русский](README-ru.md)[Suomeksi](README-fi.md)
 
 ## Features
 - Gizmos (via [popcron/gizmos](https://github.com/popcron/gizmos))
