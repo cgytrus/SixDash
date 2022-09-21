@@ -10,7 +10,7 @@ API ja optimointi modi [3Dash](https://delugedrop.itch.io/3dash):ille
 - Muita ominaisuuksia jotka voivat auttaa 3Dash modaajia
 
 ## Asennus
-1. Lataa BepInEx asennusohjelma. [Scripti](https://gist.githubusercontent.com/cgytrus/29085a6bf179893666316a36e1c92bf6/raw/bepinex-installer.ps1)
+1. Lataa BepInEx asennusohjelma [scripti](https://gist.githubusercontent.com/cgytrus/29085a6bf179893666316a36e1c92bf6/raw/bepinex-installer.ps1)
 2. Laita asennus-scripti sinun 3Dash kansioon
 3. Käynnistä scripti oikea-klikkaamalla ja valitsemalla: `Run with Powershell`
 4. Sitten kun scripti on valmis jutuissaan, voit poistaa script tiedoston
