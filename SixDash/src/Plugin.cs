@@ -24,6 +24,7 @@ public class Plugin : BaseUnityPlugin {
         API.World.Patch();
         Player.Patch();
         Music.Patch();
+        Checkpoint.Patch();
         Util.ApplyAllPatches();
 
         Logger.LogInfo("Initializing UI");

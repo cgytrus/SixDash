@@ -27,18 +27,18 @@ internal class NoReloadOnRespawn : IPatch {
     private static readonly FieldInfo savedPortalsField = AccessTools.Field(typeof(CheckpointScript), "savedPortals");
 
     public void Apply() {
-        Player.playerSpawn += self => {
+        Player.spawn += self => {
             if(!_playerPrefab)
                 InitializePlayerPrefab(self);
             LoadCheckpoint(self);
         };
 
-        Player.playerDeath += self => {
+        Player.death += self => {
             _deadCamera = Object.Instantiate(self.cam, self.cam.transform.position, self.cam.transform.rotation);
             _latestPlayer = Object.Instantiate(_playerPrefab);
         };
 
-        Player.playerRespawn += () => {
+        Player.respawn += () => {
             if(_deadCamera)
                 Object.Destroy(_deadCamera);
             if(_latestPlayer)
@@ -59,7 +59,7 @@ internal class NoReloadOnRespawn : IPatch {
                 self.SetStarsColor(Color.HSVToRGB(h, s, v * 0.4f));
         };
 
-        Player.checkpointPlace += SaveCheckpoint;
+        Checkpoint.place += SaveCheckpoint;
     }
 
     private static void InitializePlayerPrefab(Component self) {

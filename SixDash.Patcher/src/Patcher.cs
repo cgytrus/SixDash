@@ -17,7 +17,6 @@ public static class Patcher {
         //TypeDefinition list = module.GetType("System.Collections.Generic", "List`1");
 
         TypeDefinition checkpointScript = module.GetType("CheckpointScript");
-        AddMethod(checkpointScript, new MethodDefinition("Awake", MethodAttributes.Private, module.TypeSystem.Void));
         checkpointScript.Fields.Add(new FieldDefinition("savedOrbs", FieldAttributes.Private,
             module.TypeSystem.Single.MakeArrayType()));
         checkpointScript.Fields.Add(new FieldDefinition("savedPads", FieldAttributes.Private,

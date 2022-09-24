@@ -82,7 +82,7 @@ public static class World {
                 (Action<WorldGeneratorEditor> _, WorldGeneratorEditor self) => FixedUpdateLevel(self.renderDistance))
             .Apply();
 
-        Player.playerSpawn += _ => ResetRenderIndex();
+        Player.spawn += _ => ResetRenderIndex();
 
         IL.FlatEditor.Update += il => {
             ILCursor cursor = new(il);
