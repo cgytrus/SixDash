@@ -8,7 +8,7 @@ using Gizmos = Popcron.Gizmos;
 
 namespace SixDash;
 
-public class GizmosCamera : MonoBehaviour {
+internal class GizmosCamera : MonoBehaviour {
     private Camera? _camera;
     private Transform? _transform;
     private Transform? _followTransform;

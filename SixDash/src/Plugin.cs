@@ -9,8 +9,8 @@ using UnityEngine;
 
 namespace SixDash;
 
-[BepInPlugin("mod.cgytrus.plugins.sixdash", PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-public class Plugin : BaseUnityPlugin {
+[BepInPlugin("mod.cgytrus.plugins.sixdash", SixDashPluginInfo.PLUGIN_NAME, SixDashPluginInfo.PLUGIN_VERSION)]
+internal class Plugin : BaseUnityPlugin {
     internal static Plugin? instance { get; private set; }
 
     private void Awake() {
@@ -29,7 +29,7 @@ public class Plugin : BaseUnityPlugin {
 
         Logger.LogInfo("Initializing UI");
         UI.Setup();
-        UI.AddVersionText($"6Dash v{PluginInfo.PLUGIN_VERSION}");
+        UI.AddVersionText($"6Dash v{SixDashPluginInfo.PLUGIN_VERSION}");
     }
 
     private void Start() {

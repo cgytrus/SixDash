@@ -19,26 +19,81 @@ using Object = UnityEngine.Object;
 
 namespace SixDash.API;
 
+/// <summary>
+/// APIs related to the game's world when in a level.
+/// </summary>
 [PublicAPI]
 public static class World {
     private const int ChunkWidth = 128;
 
+    /// <summary>
+    /// Fired when a level begins loading.
+    /// </summary>
     public static event Action? levelLoading;
+
+    /// <summary>
+    /// Fired when a level has finished loading.
+    /// </summary>
     public static event Action? levelLoaded;
+
+    /// <summary>
+    /// Fired when an item has finished loading.
+    /// </summary>
     public static event Action<string, Vector3Int, int, GameObject?>? itemLoaded;
+
+    /// <summary>
+    /// Fired when <see cref="WorldGenerator"/>.<see cref="WorldGenerator.Update"/> is called.
+    /// </summary>
     public static event Action<float, float>? levelUpdate;
+
+    /// <summary>
+    /// Fired when <see cref="WorldGenerator"/>.FixedUpdate() is called.
+    /// </summary>
     public static event Action<float, float>? levelFixedUpdate;
 
+    /// <summary>
+    /// Speed of the color change animation when the player hits a color changer.
+    /// </summary>
     public const float ColorChangeSpeed = 1.8f;
+
+    /// <summary>
+    /// Color changer data.
+    /// </summary>
+    /// <param name="startDistance">The distance at which the color change animation starts.</param>
+    /// <param name="endDistance">The distance at which the color change animation ends.</param>
+    /// <param name="color">The color of the color changer.</param>
     public record struct ColorChangerData(float startDistance, float endDistance, Color color);
 
+    /// <summary>
+    /// Current time of the level in seconds.
+    /// </summary>
+    /// <seealso cref="DistanceToTime"/>
+    /// <seealso cref="PathFollower.distanceTravelled"/>
     public static float levelTime => DistanceToTime(PathFollower.distanceTravelled);
 
+    /// <summary>
+    /// List of all chunks in the current level.
+    /// </summary>
     public static IReadOnlyDictionary<int, Chunk> levelChunks => chunks;
+    /// <summary>
+    /// List of all items in the current level.
+    /// </summary>
     public static IReadOnlyList<ItemScript> levelItems => items;
+    /// <summary>
+    /// List of all orb items in the current level.
+    /// </summary>
     public static IReadOnlyList<OrbScript> levelOrbs => orbs;
+    /// <summary>
+    /// List of all pad items in the current level.
+    /// </summary>
     public static IReadOnlyList<PadScript> levelPads => pads;
+    /// <summary>
+    /// List of all portal items in the current level.
+    /// </summary>
     public static IReadOnlyList<PortalScript> levelPortals => portals;
+    /// <summary>
+    /// List of all color changer data in the current level.
+    /// </summary>
     public static IReadOnlyList<ColorChangerData> levelColorChangers => colorChangers;
 
     private static readonly Dictionary<int, Chunk> chunks = new();
@@ -95,6 +150,11 @@ public static class World {
         };
     }
 
+    /// <summary>
+    /// Converts time in seconds to distance.
+    /// </summary>
+    /// <param name="time">Time in seconds.</param>
+    /// <returns>Distance.</returns>
     public static float TimeToDistance(float time) {
         float currentTime = 0f;
         float speed = Player.initialSpeed;
@@ -112,6 +172,11 @@ public static class World {
         return distance + (time - currentTime) * speed;
     }
 
+    /// <summary>
+    /// Converts distance to time in seconds.
+    /// </summary>
+    /// <param name="distance">Distance.</param>
+    /// <returns>Time in seconds.</returns>
     public static float DistanceToTime(float distance) {
         float currentDistance = 0f;
         float speed = Player.initialSpeed;

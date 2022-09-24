@@ -32,6 +32,7 @@
  * * * * */
 
 #nullable disable
+#pragma warning disable CS1591
 // ReSharper disable All
 
 using System;

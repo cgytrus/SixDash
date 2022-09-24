@@ -1,11 +1,29 @@
 ﻿using System.Collections.Generic;
 
+using JetBrains.Annotations;
+
 using UnityEngine;
 
 namespace SixDash;
 
+/// <summary>
+/// Item models.
+/// </summary>
+[PublicAPI]
 public static class ItemModels {
+    /// <summary>
+    /// Model face.
+    /// </summary>
+    /// <param name="vertices">Vertices.</param>
+    /// <param name="triangles">Triangles.</param>
+    /// <param name="uvs">Texture UV coordinates.</param>
+    /// <param name="direction">The direction the face is facing.</param>
     public record struct Face(Vector3[] vertices, int[] triangles, Vector2[] uvs, Vector3Int direction);
+
+    /// <summary>
+    /// Item model.
+    /// </summary>
+    /// <param name="faces">Model faces.</param>
     public record struct Model(Face[] faces);
 
     private static Face GeneratePlane(Vector3 offset, Vector3Int direction, float width, float height, int detail) {
@@ -120,6 +138,9 @@ public static class ItemModels {
     }
     private static readonly Model[] slopeModels = GenerateSlopeModels(24);
 
+    /// <summary>
+    /// Item models.
+    /// </summary>
     public static readonly IReadOnlyDictionary<string, Model[]> models = new Dictionary<string, Model[]> {
         { "3dash:blocks/normal", fullBlockModels },
         { "3dash:blocks/grid", fullBlockModels },
@@ -129,6 +150,9 @@ public static class ItemModels {
         //{ "3dash:hazards/slope", slopeModels }
     };
 
+    /// <summary>
+    /// List of non-opaque items.
+    /// </summary>
     public static readonly ISet<string> transparent = new HashSet<string>
         { "3dash:blocks/grid", "3dash:blocks/cosmicGrid" };
 }

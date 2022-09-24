@@ -17,10 +17,19 @@ using Object = UnityEngine.Object;
 
 namespace SixDash;
 
+/// <summary>
+/// Utilities.
+/// </summary>
 [PublicAPI]
 public static class Util {
     internal static ManualLogSource? logger { get; set; }
 
+    /// <summary>
+    /// Finds a resource of the specified type with a specified name.
+    /// </summary>
+    /// <param name="type">The type.</param>
+    /// <param name="name">The name.</param>
+    /// <returns>The found resource. Null if no resource was found.</returns>
     public static Object? FindResourceOfTypeWithName(Type type, string name) {
         // ReSharper disable once LoopCanBeConvertedToQuery
         foreach(Object obj in Resources.FindObjectsOfTypeAll(type)) {
@@ -32,9 +41,18 @@ public static class Util {
         return null;
     }
 
+    /// <summary>
+    /// Finds a resource of the specified type with a specified name.
+    /// </summary>
+    /// <param name="name">The name.</param>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <returns>The found resource. Null if no resource was found.</returns>
     public static T? FindResourceOfTypeWithName<T>(string name) where T : Object =>
         (T?)FindResourceOfTypeWithName(typeof(T), name);
 
+    /// <summary>
+    /// Applies all patches inheriting from <see cref="IPatch"/>.
+    /// </summary>
     public static void ApplyAllPatches() {
         Assembly assembly = Assembly.GetCallingAssembly();
         ForEachImplementation(assembly, typeof(IPatch), Action);
@@ -51,11 +69,22 @@ public static class Util {
         }
     }
 
-    public static void ForEachImplementation(Type interfaceType, Action<Type> action) {
+    /// <summary>
+    /// Iterates each implementation of an type in all assemblies.
+    /// </summary>
+    /// <param name="baseType">The type.</param>
+    /// <param name="action">Execute for each found type.</param>
+    public static void ForEachImplementation(Type baseType, Action<Type> action) {
         foreach(Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
-            ForEachImplementation(assembly, interfaceType, action);
+            ForEachImplementation(assembly, baseType, action);
     }
 
+    /// <summary>
+    /// Iterates each implementation of an type in the specified assembly.
+    /// </summary>
+    /// <param name="assembly">The assembly.</param>
+    /// <param name="baseType">The type.</param>
+    /// <param name="action">Execute for each found type.</param>
     public static void ForEachImplementation(Assembly assembly, Type baseType, Action<Type> action) {
         try {
             foreach(Type type in assembly.GetTypes())
@@ -80,10 +109,29 @@ public static class Util {
                 logger.LogWarning(loaderException);
     }
 
+    // i ain't gonna document every easing hhh
+#pragma warning disable CS1591
+    /// <summary>
+    /// Easings.
+    /// </summary>
     [PublicAPI] public enum Easing { Linear, Sine, Ease, Exponential, Circular, Back, Elastic, Bounce }
+
+    /// <summary>
+    /// Easing modes.
+    /// </summary>
     [PublicAPI] public enum EasingMode { In, Out, InOut }
+#pragma warning restore CS1591
 
     // https://easings.net 🙏
+    /// <summary>
+    /// Applies an easing to a value.
+    /// </summary>
+    /// <param name="x">The value.</param>
+    /// <param name="easing">The easing.</param>
+    /// <param name="mode">The easing mode.</param>
+    /// <param name="argument">The easing argument.
+    /// Applies to: <see cref="Easing.Ease"/>, <see cref="Easing.Bounce"/>. Ignored otherwise.</param>
+    /// <returns>The value with the easing applied.</returns>
     public static float ApplyEasing(float x, Easing easing, EasingMode mode, float argument) {
         const float c1 = 1.70158f;
         const float c2 = c1 * 1.525f;

@@ -10,14 +10,33 @@ using UnityEngine;
 
 namespace SixDash.API;
 
+/// <summary>
+/// APIs related to the game's user interface.
+/// </summary>
 [PublicAPI]
 public static class UI {
+    /// <summary>
+    /// The outline width used commonly across the game's texts.
+    /// </summary>
     public const float FontOutlineWidth = 0.304f;
+
+    /// <summary>
+    /// The font style used commonly across the game's texts.
+    /// </summary>
     public const FontStyles FontStyle = FontStyles.Bold;
 
     private static readonly List<string> versionTexts = new(4);
 
+    /// <summary>
+    /// The font asset used commonly across the game's texts.
+    /// </summary>
+    /// <seealso cref="fontMaterial"/>
     public static TMP_FontAsset? fontAsset { get; private set; }
+
+    /// <summary>
+    /// The font material used commonly across the game's texts.
+    /// </summary>
+    /// <seealso cref="fontAsset"/>
     public static Material? fontMaterial { get; private set; }
 
     internal static void Setup() {
@@ -38,5 +57,9 @@ public static class UI {
         };
     }
 
+    /// <summary>
+    /// Appends some text to the bottom of the version text seen in the bottom left corner of the main menu.
+    /// </summary>
+    /// <param name="text">The text to append to the version text.</param>
     public static void AddVersionText(string text) => versionTexts.Add(text);
 }

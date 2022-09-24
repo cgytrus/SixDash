@@ -2,6 +2,7 @@
 #pragma warning disable CS0067
 #pragma warning disable CS0219
 #pragma warning disable CS0105
+#pragma warning disable CS1591
 // ReSharper disable All
 
 using System;

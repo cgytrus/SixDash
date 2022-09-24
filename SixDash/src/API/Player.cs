@@ -9,17 +9,54 @@ using Object = UnityEngine.Object;
 
 namespace SixDash.API;
 
+/// <summary>
+/// APIs related to the player.
+/// </summary>
 [PublicAPI]
 public static class Player {
+    /// <summary>
+    /// Instance of the current player's <see cref="GameObject"/>.
+    /// </summary>
     public static GameObject? gameObjectInstance { get; private set; }
+
+    /// <summary>
+    /// Instance of the current player's <see cref="Transform"/>.
+    /// </summary>
     public static Transform? transformInstance { get; private set; }
+
+    /// <summary>
+    /// Instance of the current player's <see cref="PlayerScript"/>.
+    /// </summary>
     public static PlayerScript? scriptInstance { get; private set; }
 
+    /// <summary>
+    /// The initial speed of the player in the current level.
+    /// </summary>
     public static float initialSpeed { get; private set; }
 
+    /// <summary>
+    /// Fired when the player is spawned. Includes the initial spawn and all the subsequent respawns.
+    /// </summary>
+    /// <seealso cref="respawn"/>
     public static event Action<PlayerScript>? spawn;
+
+    /// <summary>
+    /// Fired when the player dies.
+    /// </summary>
+    /// <seealso cref="wouldDie"/>
     public static event Action<PlayerScript>? death;
+
+    /// <summary>
+    /// Fired when the player is supposed to die but does not
+    /// (for example, if <see cref="PlayerScript.noDeath"/> is set to <b>true</b>).
+    /// </summary>
+    /// <seealso cref="death"/>
     public static event Action<PlayerScript>? wouldDie;
+
+    /// <summary>
+    /// Fired when the player respawns. Does not include the initial spawn, only the subsequent respawns.
+    /// </summary>
+    /// <seealso cref="spawn"/>
     public static event Action? respawn;
 
     internal static void Patch() {

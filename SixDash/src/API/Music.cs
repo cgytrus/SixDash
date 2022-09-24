@@ -6,12 +6,30 @@ using UnityEngine;
 
 namespace SixDash.API;
 
+/// <summary>
+/// APIs related to music.
+/// </summary>
 [PublicAPI]
 public static class Music {
     private const float BasePulseFps = 60f;
 
+    /// <summary>
+    /// Instance of the music audio source in the current level.
+    /// </summary>
     public static AudioSource? music { get; private set; }
+
+    /// <summary>
+    /// Current music offset.
+    /// </summary>
     public static float offset { get; private set; }
+
+    /// <summary>
+    /// Pulse value. Can be used for visual effects syncing to music.
+    /// </summary>
+    /// <remarks>
+    /// Only updated every Update, not every FixedUpdate,
+    /// meaning it can not be used for anything physics-related.
+    /// </remarks>
     public static float pulse { get; private set; }
 
     private static float[] _samples = Array.Empty<float>();

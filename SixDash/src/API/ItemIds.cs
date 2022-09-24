@@ -5,6 +5,9 @@ using JetBrains.Annotations;
 
 namespace SixDash.API;
 
+/// <summary>
+/// Provides items IDs of items.
+/// </summary>
 [PublicAPI]
 public static class ItemIds {
     private static readonly IReadOnlyDictionary<string, int> official = new Dictionary<string, int> {
@@ -91,12 +94,53 @@ public static class ItemIds {
     private static readonly IReadOnlyDictionary<int, string> customInverse =
         custom.ToDictionary(pair => pair.Value, pair => pair.Key);
 
+    /// <summary>
+    /// Gets the numeric ID of an item from its string ID.
+    /// </summary>
+    /// <param name="official">Whether the item is in an official level.</param>
+    /// <param name="id">The string ID of the item.</param>
+    /// <returns>The numeric ID of the item.</returns>
+    /// <seealso cref="Get(bool, int)"/>
     public static int Get(bool official, string id) => official ? GetOfficial(id) : GetCustom(id);
+
+    /// <summary>
+    /// Gets the string ID of an item from its numeric ID.
+    /// </summary>
+    /// <param name="official">Whether the item is in an official level.</param>
+    /// <param name="id">The numeric ID of the item.</param>
+    /// <returns>The string ID of the item.</returns>
+    /// <seealso cref="Get(bool, string)"/>
     public static string Get(bool official, int id) => official ? GetOfficial(id) : GetCustom(id);
 
+    /// <summary>
+    /// Gets the numeric ID of an item in an official level from its string ID.
+    /// </summary>
+    /// <param name="id">The string ID of the item.</param>
+    /// <returns>The numeric ID of the item.</returns>
+    /// <seealso cref="GetOfficial(int)"/>
     public static int GetOfficial(string id) => official[id];
+
+    /// <summary>
+    /// Gets the string ID of an item in an official level from its numeric ID.
+    /// </summary>
+    /// <param name="id">The numeric ID of the item.</param>
+    /// <returns>The string ID of the item.</returns>
+    /// <seealso cref="GetOfficial(string)"/>
     public static string GetOfficial(int id) => officialInverse[id];
 
+    /// <summary>
+    /// Gets the numeric ID of an item in a custom level from its string ID.
+    /// </summary>
+    /// <param name="id">The string ID of the item.</param>
+    /// <returns>The numeric ID of the item.</returns>
+    /// <seealso cref="GetCustom(int)"/>
     public static int GetCustom(string id) => custom[id];
+
+    /// <summary>
+    /// Gets the string ID of an item in a custom level from its numeric ID.
+    /// </summary>
+    /// <param name="id">The numeric ID of the item.</param>
+    /// <returns>The string ID of the item.</returns>
+    /// <seealso cref="GetCustom(string)"/>
     public static string GetCustom(int id) => customInverse[id];
 }

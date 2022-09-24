@@ -14,16 +14,42 @@ using Object = UnityEngine.Object;
 
 namespace SixDash;
 
+/// <summary>
+/// Represents a single chunk of items in a level.
+/// </summary>
 [PublicAPI]
 public class Chunk {
+    /// <summary>
+    /// Speed of the item out animation.
+    /// </summary>
     public const float OutAnimSpeed = 1.8f;
+    /// <summary>
+    /// Speed of the item in animation.
+    /// </summary>
     public const float InAnimSpeed = 7.7f;
 
+    /// <summary>
+    /// Time of the item out animation.
+    /// </summary>
     public const float OutAnimTime = 1f / OutAnimSpeed;
+    /// <summary>
+    /// Time of the item in animation.
+    /// </summary>
     public const float InAnimTime = 1f / InAnimSpeed;
 
+    /// <summary>
+    /// Represents some information about an item.
+    /// </summary>
     [PublicAPI]
     public class ItemInfo {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="id">Item ID.</param>
+        /// <param name="position">Item position.</param>
+        /// <param name="rotation">Item rotation.</param>
+        /// <param name="path">The path the item is on.</param>
+        /// <param name="endOfPath">End of path instruction.</param>
         public ItemInfo(string id, Vector3Int position, int rotation, VertexPath path, EndOfPathInstruction endOfPath) {
             this.id = id;
             this.position = position;
@@ -50,37 +76,82 @@ public class Chunk {
                 modelIndex < models.Length ? models[modelIndex] : null;
         }
 
+        /// <summary>
+        /// Item ID.
+        /// </summary>
         public string id { get; }
+        /// <summary>
+        /// Item position.
+        /// </summary>
         public Vector3Int position { get; }
+        /// <summary>
+        /// Item rotation.
+        /// </summary>
         public int rotation { get; }
+        /// <summary>
+        /// Item world position.
+        /// </summary>
         public Vector3 worldPosition { get; }
+        /// <summary>
+        /// Item world rotation.
+        /// </summary>
         public Quaternion worldRotation { get; }
 
+        /// <summary>
+        /// The time in seconds at which the player's distance and the item's distance will match.
+        /// </summary>
         public float time { get; private set; } = -1f;
+        /// <summary>
+        /// The distance at which the out animation of the item ends, based on renderMin.
+        /// </summary>
         public float outAnimationEnd { get; private set; } = -1f;
+        /// <summary>
+        /// The distance at which the in animation of the item ends, based on renderMax.
+        /// </summary>
         public float inAnimationEnd { get; private set; } = -1f;
 
+        /// <summary>
+        /// Item model.
+        /// </summary>
         public ItemModels.Model? model { get; }
+        /// <summary>
+        /// Item rotation in its path's space.
+        /// </summary>
         public Quaternion pathRotation { get; }
         private readonly Quaternion _dirRot;
 
         private readonly VertexPath _path;
         private readonly EndOfPathInstruction _endOfPath;
 
-        public void CacheAnimationValues() {
+        internal void CacheAnimationValues() {
             time = World.DistanceToTime(position.x);
             outAnimationEnd = World.TimeToDistance(time + OutAnimTime);
             inAnimationEnd = World.TimeToDistance(time + InAnimTime);
         }
 
+        /// <summary>
+        /// Rotates an offset from this item's position to its path's space.
+        /// </summary>
+        /// <param name="pos">The offset in item's local space.</param>
+        /// <returns>The offset in the item's path space.</returns>
         public Vector3 OffsetToPathSpace(Vector3 pos) {
             Vector3 rotatedVertex = pathRotation * pos;
             Vector3 offset = new(rotatedVertex.z, rotatedVertex.y, rotatedVertex.x);
             return offset;
         }
 
+        /// <summary>
+        /// Converts vertex position to path space.
+        /// </summary>
+        /// <param name="vertex">The vertex position.</param>
+        /// <returns>The vertex position in path space.</returns>
         public Vector3 VertexToPathSpace(Vector3 vertex) => position + OffsetToPathSpace(vertex);
 
+        /// <summary>
+        /// Converts vertex position to world space.
+        /// </summary>
+        /// <param name="vertex">The vertex position.</param>
+        /// <returns>The vertex position in world space.</returns>
         public Vector3 VertexToWorldSpace(Vector3 vertex) {
             Vector3 pathPosition = position + OffsetToPathSpace(vertex);
             Vector3 worldPos = pathPosition.x < 0f || pathPosition.x > _path.length ?
@@ -88,13 +159,28 @@ public class Chunk {
             return worldPos;
         }
 
+        /// <summary>
+        /// Converts an integer direction from local to world space.
+        /// </summary>
+        /// <param name="direction">The direction in local space.</param>
+        /// <returns>The direction in world space.</returns>
         public Vector3Int DirectionToWorldSpaceInt(Vector3Int direction) {
             Vector3 rotDir = DirectionToWorldSpace(direction);
             return new Vector3Int((int)rotDir.x, (int)rotDir.y, (int)rotDir.z);
         }
 
+        /// <summary>
+        /// Converts a direction from local to world space.
+        /// </summary>
+        /// <param name="direction">The direction in local space.</param>
+        /// <returns>The direction in world space.</returns>
         public Vector3 DirectionToWorldSpace(Vector3Int direction) => _dirRot * direction;
 
+        /// <summary>
+        /// Converts a position in path space to world space.
+        /// </summary>
+        /// <param name="position">The position in path space.</param>
+        /// <returns>The position in world space.</returns>
         public (Vector3, Quaternion) PathSpaceToWorldSpace(Vector3 position) {
             Quaternion pathRotation = Quaternion.Euler(_path.GetRotationAtDistance(position.x, _endOfPath).eulerAngles +
                 new Vector3(0f, 0f, 90f));
@@ -103,6 +189,13 @@ public class Chunk {
             return (pathPosition, pathRotation);
         }
 
+        /// <summary>
+        /// Checks whether the <paramref name="face"/> of an <paramref name="item"/>
+        /// can be culled against this item's model.
+        /// </summary>
+        /// <param name="item">The item the face is on.</param>
+        /// <param name="face">The face to check.</param>
+        /// <returns>Whether the face can be culled against this item.</returns>
         public bool CanCullFaceAgainstModel(ItemInfo item, ItemModels.Face face) {
             if(!model.HasValue)
                 return false;
@@ -124,8 +217,20 @@ public class Chunk {
         }
     }
 
+    /// <summary>
+    /// Indicates whether the chunk is active.
+    /// </summary>
     public bool active { get; private set; } = true;
+
+    /// <summary>
+    /// All items in this chunk.
+    /// </summary>
     public IReadOnlyDictionary<Vector3Int, ItemInfo> items => _items;
+
+    /// <summary>
+    /// All items' <see cref="GameObject"/>s, <see cref="Transform"/>s and
+    /// whether they should not stop rendering when going out of render distance in this chunk.
+    /// </summary>
     public IReadOnlyList<(ItemInfo, GameObject, Transform, bool)> itemObjects => _itemObjects;
 
     private readonly Dictionary<Vector3Int, ItemInfo> _items = new();
@@ -177,6 +282,16 @@ public class Chunk {
         }
     }
 
+    /// <summary>
+    /// Sets an item in this chunk.
+    /// </summary>
+    /// <param name="id">Item ID.</param>
+    /// <param name="position">Item position.</param>
+    /// <param name="rotation">Item rotation.</param>
+    /// <param name="prefab">Item prefab.</param>
+    /// <returns>The created item's <see cref="GameObject"/></returns>
+    /// <seealso cref="UpdateItemAnimationPositions"/>
+    /// <seealso cref="UpdateMeshes"/>
     public GameObject SetItem(string id, Vector3Int position, int rotation, GameObject prefab) {
         ItemInfo info = new(id, position, rotation, _path, _endOfPath);
         _items[position] = info;
@@ -195,6 +310,10 @@ public class Chunk {
         return obj;
     }
 
+    /// <summary>
+    /// Updates the information about item animations. Should be called when you're done adding items to the chunk.
+    /// </summary>
+    /// <seealso cref="SetItem"/>
     public void UpdateItemAnimationPositions() {
         _maxRenderX = float.NegativeInfinity;
         _minRenderX = float.PositiveInfinity;
@@ -205,6 +324,10 @@ public class Chunk {
         }
     }
 
+    /// <summary>
+    /// Updates the meshes of blocks in this chunk. Should be called when you're done adding items to the chunk.
+    /// </summary>
+    /// <seealso cref="SetItem"/>
     public void UpdateMeshes() {
         foreach(KeyValuePair<string, Mesh> pair in _meshes)
             UpdateMesh(pair.Key, pair.Value);
@@ -300,6 +423,13 @@ public class Chunk {
         }
     }
 
+    /// <summary>
+    /// Applies the out animation to a scale.
+    /// </summary>
+    /// <param name="renderMin">Minimum render distance.</param>
+    /// <param name="animationEnd">The end of the animation relative to <paramref name="renderMin"/>.</param>
+    /// <param name="posX">The X position of the item.</param>
+    /// <returns>The scale.</returns>
     public static Vector3 ScaleOut(float renderMin, float animationEnd, float posX) {
         float length = animationEnd - posX;
         float t = (renderMin - posX) / length;
@@ -323,6 +453,13 @@ public class Chunk {
         }
     }
 
+    /// <summary>
+    /// Applies the in animation to a scale.
+    /// </summary>
+    /// <param name="renderMax">Maximum render distance.</param>
+    /// <param name="animationEnd">The end of the animation relative to <paramref name="renderMax"/>.</param>
+    /// <param name="posX">The X position of the item.</param>
+    /// <returns>The scale.</returns>
     public static Vector3 ScaleIn(float renderMax, float animationEnd, float posX) {
         float length = animationEnd - posX;
         float t = (renderMax - posX) / length;
