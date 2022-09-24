@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net471</TargetFramework>
     <AssemblyName>SixDash</AssemblyName>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <Company>https://github.com/cgytrus/SixDash</Company>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>10.0</LangVersion>
