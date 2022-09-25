@@ -1,0 +1,584 @@
+{
+  "homepages": [],
+  "source_base_path": "/github/workspace/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../README-fi.md",
+      "output": {
+        ".html": {
+          "relative_path": "README-fi.html",
+          "hash": "k6Q6mHUbfTq+MTOhea3YGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../README-ru.md",
+      "output": {
+        ".html": {
+          "relative_path": "README-ru.html",
+          "hash": "RqF6Zlyoghj3oGFMPEqcCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "Zodr1Y24x+B9T3BWZdKb8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/B83.Win32.HookType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/B83.Win32.HookType.html",
+          "hash": "aGiyG9YuSYTD7PiQYyR9CA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/B83.Win32.MSG.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/B83.Win32.MSG.html",
+          "hash": "IsvsqHnBQ2KT4JNOy0p4hQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/B83.Win32.POINT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/B83.Win32.POINT.html",
+          "hash": "cD1bunYb5tD7HPULkGCyzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/B83.Win32.UnityDragAndDropHook.DroppedFilesEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/B83.Win32.UnityDragAndDropHook.DroppedFilesEvent.html",
+          "hash": "N0Zhmea34ZMx04t9Z6Nj3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/B83.Win32.UnityDragAndDropHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/B83.Win32.UnityDragAndDropHook.html",
+          "hash": "ub9RlXo7KjTIZX6LHVXSFw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/B83.Win32.WM.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/B83.Win32.WM.html",
+          "hash": "G9ozVEL52oH15yWYixl5vw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/B83.Win32.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/B83.Win32.html",
+          "hash": "Dgt8l2g6AcjzihJ7QWPsSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.Constants.html",
+          "hash": "zFYvHkU11zUGtbcnUtfUjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.CubeDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.CubeDrawer.html",
+          "hash": "sUKJI/ea1puuoU9tk03H9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.Drawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.Drawer.html",
+          "hash": "Q/9lXDnuGkY3iYs92QjZJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.Gizmos.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.Gizmos.html",
+          "hash": "v0qYYDLv2PFSqBjHHcGNLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.GizmosInstance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.GizmosInstance.html",
+          "hash": "LHrL375oyJzsUphjIxPrbA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.LineDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.LineDrawer.html",
+          "hash": "Y1ROYeJzZdxnIPhe/BO2gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.PolygonDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.PolygonDrawer.html",
+          "hash": "LaPgkc0J91r9RyotFlX6rg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.SquareDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.SquareDrawer.html",
+          "hash": "AAUpw4uHNyKX2xFkjL2Qdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Popcron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Popcron.html",
+          "hash": "ZI0amqUvYBrtGIY07Bl1Sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Checkpoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Checkpoint.html",
+          "hash": "lQsJGFq+/q12QKE29NcHiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.ItemIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.ItemIds.html",
+          "hash": "T9ilyd4d30V6GXSnwS+DvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Music.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Music.html",
+          "hash": "BgCK3VB7G8y2Z4URklhUQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Online.LevelDownloadFinish.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Online.LevelDownloadFinish.html",
+          "hash": "hPMo1er3RojaMc8bI+BEWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Online.LevelDownloadStart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Online.LevelDownloadStart.html",
+          "hash": "cniTHiFA5c4rMA10mV8bnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Online.LevelUploadFinish.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Online.LevelUploadFinish.html",
+          "hash": "njQ4b9F215/9tMSMwaiGHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Online.LevelUploadStart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Online.LevelUploadStart.html",
+          "hash": "nVw8YV38m04w0cbRSlgnFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Online.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Online.html",
+          "hash": "qUSqVfzr7H74010fosN3Wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.Player.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.Player.html",
+          "hash": "WhzY4s86b7wC/60fj6Ucrg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.UI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.UI.html",
+          "hash": "+YtdXZ97N4iX9fgPboVXBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.World.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.World.html",
+          "hash": "EZNLua7Sn/FKPw9z79NTdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.API.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.API.html",
+          "hash": "ZmRaIqQRW1s61Dyp9gpGPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Chunk.ItemInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Chunk.ItemInfo.html",
+          "hash": "Z7OefFIn+LWsxiUejBq6ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Chunk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Chunk.html",
+          "hash": "Zm5y4XrTOEQFvms7wDuIFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.ItemModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.ItemModels.html",
+          "hash": "bJDcTrBjB95NHTZdCKiYUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Patches.ConfigurablePatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Patches.ConfigurablePatch.html",
+          "hash": "qiZZSE5p42Fj+AUeWJV0Mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Patches.IPatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Patches.IPatch.html",
+          "hash": "vKHME/5p+tMDCvqpziSj3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Patches.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Patches.html",
+          "hash": "NR/xu92AVUwBMUSHr8LWOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Util.Easing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Util.Easing.html",
+          "hash": "YlIsdXeMTAgKZkoe9Dh5+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Util.EasingMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Util.EasingMode.html",
+          "hash": "9XA6/2LEsCkokuUMZD14aA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.Util.html",
+          "hash": "l6TCFoZR/mNWAV7eI3JZnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SixDash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SixDash.html",
+          "hash": "Zf3sYeiZUE3mNpvT/RbhDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "fusion/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "fusion/toc.html",
+          "hash": "JgAtnz3UV80uUQ4aKFzyCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "Pz9x2iYXt6/EIq6jmLkPWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "nDH88aeab8VwUUVrqVY5lQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 38,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
