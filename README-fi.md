@@ -1,16 +1,14 @@
 # 6Dash
-![GitHub all releases](https://img.shields.io/github/downloads/cgytrus/SixDash/total?label=GitHub%20downloads)
-![Thunderstore total](https://img.shields.io/badge/dynamic/json?color=yellowgreen&label=Thunderstore%20downloads&query=%24.total_downloads&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)
-![Thunderstore rating](https://img.shields.io/badge/dynamic/json?color=blue&label=Thunderstore%20rating&query=%24.rating_score&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)
+[![GitHub all releases](https://img.shields.io/github/downloads/cgytrus/SixDash/total?label=GitHub%20downloads)](https://github.com/cgytrus/SixDash/releases/latest)
+[![Thunderstore downloads](https://img.shields.io/badge/dynamic/json?color=yellowgreen&label=Thunderstore%20downloads&query=%24.total_downloads&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)](https://3dash.thunderstore.io/package/ConfiG/6Dash)
+[![Thunderstore rating](https://img.shields.io/badge/dynamic/json?color=blue&label=Thunderstore%20rating&query=%24.rating_score&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)](https://3dash.thunderstore.io/package/ConfiG/6Dash)
 
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/cgytrus/SixDash)
-![Discord](https://img.shields.io/discord/1013929489882951680)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/cgytrus/SixDash)](https://www.codefactor.io/repository/github/cgytrus/SixDash)
+[![Discord](https://img.shields.io/discord/1013929489882951680)](https://discord.gg/GhJaXmhf6a)
 
 API ja optimointi modi [3Dash](https://delugedrop.itch.io/3dash):ille
 
 [English](README.md)
-
-[3Dash modding Discord](https://discord.gg/GhJaXmhf6a)
 
 ## Ominaisuudet
 - Gizmos ([popcron/gizmos](https://github.com/popcron/gizmos) kautta)

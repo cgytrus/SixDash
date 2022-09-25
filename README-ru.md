@@ -1,16 +1,14 @@
 # 6Dash
-![GitHub all releases](https://img.shields.io/github/downloads/cgytrus/SixDash/total?label=загрузки%20с%20GitHub)
-![Thunderstore total](https://img.shields.io/badge/dynamic/json?color=yellowgreen&label=загрузки%20с%20Thunderstore&query=%24.total_downloads&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)
-![Thunderstore rating](https://img.shields.io/badge/dynamic/json?color=blue&label=рейтинг%20на%20Thunderstore&query=%24.rating_score&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)
+[![GitHub all releases](https://img.shields.io/github/downloads/cgytrus/SixDash/total?label=загрузки%20с%20GitHub)](https://github.com/cgytrus/SixDash/releases/latest)
+[![Thunderstore downloads](https://img.shields.io/badge/dynamic/json?color=yellowgreen&label=загрузки%20с%20Thunderstore&query=%24.total_downloads&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)](https://3dash.thunderstore.io/package/ConfiG/6Dash)
+[![Thunderstore rating](https://img.shields.io/badge/dynamic/json?color=blue&label=рейтинг%20на%20Thunderstore&query=%24.rating_score&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)](https://3dash.thunderstore.io/package/ConfiG/6Dash)
 
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/cgytrus/SixDash?label=качество%20кода)
-![Discord](https://img.shields.io/discord/1013929489882951680?label=чат)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/cgytrus/SixDash?label=качество%20кода)](https://www.codefactor.io/repository/github/cgytrus/SixDash)
+[![Discord](https://img.shields.io/discord/1013929489882951680?label=чат)](https://discord.gg/GhJaXmhf6a)
 
 API и мод на оптимизацию для [3Dash](https://delugedrop.itch.io/3dash)
 
 [English](README.md)
-
-[Discord моддинга 3Dash](https://discord.gg/GhJaXmhf6a)
 
 ## Фичи
 - Gizmos (через [popcron/gizmos](https://github.com/popcron/gizmos))
