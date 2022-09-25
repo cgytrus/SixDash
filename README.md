@@ -32,6 +32,9 @@ not available (*yet*)
 5. Download [6Dash](https://github.com/cgytrus/SixDash/releases/latest)
 6. Extract the folder from the archive into the game's folder
 
+## Documentation
+Available at https://6dash.cgyt.ru and as XML documentation
+
 ## Other used repositories
 - [popcron/gizmos](https://github.com/popcron/gizmos)
   ([MIT](https://github.com/popcron/gizmos/blob/master/LICENSE))

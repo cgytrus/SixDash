@@ -32,6 +32,9 @@ API и мод на оптимизацию для [3Dash](https://delugedrop.itch
 5. Скачайте [6Dash](https://github.com/cgytrus/SixDash/releases/latest)
 6. Распакуйте папку из архива в папку с игрой
 
+## Документация
+Доступна на https://6dash.cgyt.ru и как XML документация
+
 ## Другие использованные репозитории
 - [popcron/gizmos](https://github.com/popcron/gizmos)
   ([MIT](https://github.com/popcron/gizmos/blob/master/LICENSE))
