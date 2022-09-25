@@ -78,7 +78,6 @@ public static class Player {
         scriptInstance = self;
         orig(self);
         spawn?.Invoke(self);
-        Plugin.StartGlobalCoroutine(ResetMaximumDeltaTimeDelayed());
     }
 
     private static void PlayerScriptEditorAwake(On.PlayerScriptEditor.orig_Awake orig, PlayerScriptEditor self) {
@@ -87,17 +86,6 @@ public static class Player {
         scriptInstance = self;
         orig(self);
         spawn?.Invoke(self);
-        Plugin.StartGlobalCoroutine(ResetMaximumDeltaTimeDelayed());
-    }
-
-    private static IEnumerator ResetMaximumDeltaTimeDelayed() {
-        Time.maximumDeltaTime = 0f;
-        // it's 3 frames
-        // don't ask why.
-        yield return null;
-        yield return null;
-        yield return null;
-        Time.maximumDeltaTime = 0.2f;
     }
 
     private static void PlayerScriptDie(On.PlayerScript.orig_Die orig, PlayerScript self, bool deathOverride) {

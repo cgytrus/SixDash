@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using HarmonyLib;
@@ -198,6 +199,7 @@ public static class World {
 
     private static void LoadLevel(int[,] levelData, IReadOnlyList<GameObject> itemPrefabs, bool official,
         VertexPath path, EndOfPathInstruction endOfPath) {
+        Plugin.StartGlobalCoroutine(ResetMaximumDeltaTimeDelayed());
         levelLoading?.Invoke();
 
         chunks.Clear();
@@ -237,6 +239,13 @@ public static class World {
         };
 
         levelLoaded?.Invoke();
+    }
+
+    private static IEnumerator ResetMaximumDeltaTimeDelayed() {
+        float saved = Time.maximumDeltaTime;
+        Time.maximumDeltaTime = 0f;
+        yield return null;
+        Time.maximumDeltaTime = saved;
     }
 
     private static void PreprocessItems(IReadOnlyList<GameObject> itemPrefabs, bool official) {
