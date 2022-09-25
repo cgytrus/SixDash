@@ -13,18 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-        name: Checkout
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - uses: nikeee/docfx-action@v1.0.0
-        name: Build documentation
+      - name: Build documentation
+        uses: nikeee/docfx-action@v1.0.0
         with:
-          args: docfx/docfx.json
+          args: ./docfx/docfx.json
 
-      - uses: s0/git-publish-subdir-action@v2.5.1
-        name: Publish documentation
-        env:
-          REPO: self
-          BRANCH: gh-pages
-          FOLDER: docfx/_site
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docfx/_site
