@@ -18,13 +18,14 @@ internal class Plugin : BaseUnityPlugin {
 
         Logger.LogInfo("Loading assets");
         AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "6dash"));
-        API.World.LoadAssets(bundle);
+        World.LoadAssets(bundle);
 
         Logger.LogInfo("Applying patches");
-        API.World.Patch();
+        World.Patch();
         Player.Patch();
         Music.Patch();
         Checkpoint.Patch();
+        Online.Patch();
         Util.ApplyAllPatches();
 
         Logger.LogInfo("Initializing UI");
