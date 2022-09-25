@@ -1,0 +1,30 @@
+name: DocFX documentation
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+
+jobs:
+  docfx:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout
+
+      - uses: nikeee/docfx-action@v1.0.0
+        name: Build documentation
+        with:
+          args: docfx/docfx.json
+
+      - uses: s0/git-publish-subdir-action@v2.5.1
+        name: Publish documentation
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: docfx/_site
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
