@@ -1,7 +1,16 @@
 # 6Dash
+![GitHub all releases](https://img.shields.io/github/downloads/cgytrus/SixDash/total?label=GitHub%20downloads)
+![Thunderstore total](https://img.shields.io/badge/dynamic/json?color=yellowgreen&label=Thunderstore%20downloads&query=%24.total_downloads&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)
+![Thunderstore rating](https://img.shields.io/badge/dynamic/json?color=blue&label=Thunderstore%20rating&query=%24.rating_score&url=https%3A%2F%2F3dash.thunderstore.io%2Fapi%2Fexperimental%2Fpackage%2FConfiG%2F6Dash)
+
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/cgytrus/SixDash)
+![Discord](https://img.shields.io/discord/1013929489882951680)
+
 An API and an optimization mod for [3Dash](https://delugedrop.itch.io/3dash)
 
 [Русский](README-ru.md) [Suomeksi](README-fi.md)
+
+[3Dash modding Discord](https://discord.gg/GhJaXmhf6a)
 
 ## Features
 - Gizmos (via [popcron/gizmos](https://github.com/popcron/gizmos))
@@ -10,6 +19,14 @@ An API and an optimization mod for [3Dash](https://delugedrop.itch.io/3dash)
 - Other utilities useful for 3Dash mod developers
 
 ## Installation
+### From Thunderstore (automatically)
+not available (*yet*)
+
+### From Thunderstore (manually)
+1. Go to the mod's [Thunderstore](https://3dash.thunderstore.io/package/ConfiG/6Dash) page
+2. Follow the manual installation instructions
+
+### From GitHub releases
 1. Download the BepInEx installer [script](https://gist.githubusercontent.com/cgytrus/29085a6bf179893666316a36e1c92bf6/raw/bepinex-installer.ps1)
 2. Move the script to the game's folder
 3. Run the script by right-clicking on it and selecting `Run with Powershell`
