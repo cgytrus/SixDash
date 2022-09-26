@@ -53,6 +53,11 @@ public static class World {
     public static event Action<float, float>? levelFixedUpdate;
 
     /// <summary>
+    /// Fired when a level has been unloaded (OnDestroy).
+    /// </summary>
+    public static event Action? levelUnload;
+
+    /// <summary>
     /// Speed of the color change animation when the player hits a color changer.
     /// </summary>
     public const float ColorChangeSpeed = 1.8f;
@@ -138,6 +143,11 @@ public static class World {
                 (Action<WorldGeneratorEditor> _, WorldGeneratorEditor self) => FixedUpdateLevel(self.renderDistance))
             .Apply();
 
+        new Hook(AccessTools.Method(typeof(WorldGenerator), "OnDestroy"),
+            (Action<WorldGenerator> _, WorldGenerator self) => UnloadLevel()).Apply();
+        new Hook(AccessTools.Method(typeof(WorldGeneratorEditor), "OnDestroy"),
+            (Action<WorldGeneratorEditor> _, WorldGeneratorEditor self) => UnloadLevel()).Apply();
+
         Player.spawn += _ => ResetRenderIndex();
 
         IL.FlatEditor.Update += il => {
@@ -201,13 +211,6 @@ public static class World {
         VertexPath path, EndOfPathInstruction endOfPath) {
         Plugin.StartGlobalCoroutine(ResetMaximumDeltaTimeDelayed());
         levelLoading?.Invoke();
-
-        chunks.Clear();
-        items.Clear();
-        orbs.Clear();
-        pads.Clear();
-        portals.Clear();
-        colorChangers.Clear();
 
         if(!_preprocessedItems)
             PreprocessItems(itemPrefabs, official);
@@ -358,5 +361,15 @@ public static class World {
         foreach(Chunk chunk in chunks.Values)
             chunk.FixedUpdate(renderMin, renderMax);
         levelFixedUpdate?.Invoke(renderMin, renderMax);
+    }
+
+    private static void UnloadLevel() {
+        chunks.Clear();
+        items.Clear();
+        orbs.Clear();
+        pads.Clear();
+        portals.Clear();
+        colorChangers.Clear();
+        levelUnload?.Invoke();
     }
 }

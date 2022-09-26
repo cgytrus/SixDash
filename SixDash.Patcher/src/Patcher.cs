@@ -24,10 +24,12 @@ public static class Patcher {
         checkpointScript.Fields.Add(new FieldDefinition("savedPortals", FieldAttributes.Private,
             module.TypeSystem.Boolean.MakeArrayType()));
 
-        AddMethod(module.GetType("WorldGenerator"),
-            new MethodDefinition("FixedUpdate", MethodAttributes.Private, module.TypeSystem.Void));
-        AddMethod(module.GetType("WorldGeneratorEditor"),
-            new MethodDefinition("FixedUpdate", MethodAttributes.Private, module.TypeSystem.Void));
+        TypeDefinition worldGen0 = module.GetType("WorldGenerator");
+        TypeDefinition worldGen1 = module.GetType("WorldGeneratorEditor");
+        AddMethod(worldGen0, new MethodDefinition("FixedUpdate", MethodAttributes.Private, module.TypeSystem.Void));
+        AddMethod(worldGen1, new MethodDefinition("FixedUpdate", MethodAttributes.Private, module.TypeSystem.Void));
+        AddMethod(worldGen0, new MethodDefinition("OnDestroy", MethodAttributes.Private, module.TypeSystem.Void));
+        AddMethod(worldGen1, new MethodDefinition("OnDestroy", MethodAttributes.Private, module.TypeSystem.Void));
 
         TypeDefinition itemScript = module.GetType("ItemScript");
         RemoveMethod(itemScript, "Start");

@@ -101,6 +101,7 @@ internal class NoReloadOnRespawn : IPatch {
         return Color.Lerp(prevColor, color, t);
     }
 
+    // ReSharper disable once SuggestBaseTypeForParameter
     private static void LoadCheckpoint(PlayerScript player) {
         GameObject? recentCheckpoint = PauseMenuManager.inPracticeMode ? PlayerScript.GetRecentCheckpoint() : null;
         CheckpointScript? checkpoint = recentCheckpoint ? recentCheckpoint!.GetComponent<CheckpointScript>() : null;
