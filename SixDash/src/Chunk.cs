@@ -38,6 +38,14 @@ public class Chunk {
     public const float InAnimTime = 1f / InAnimSpeed;
 
     /// <summary>
+    /// Maximum inaccuracy allowed when comparing positions for culling and getting items.
+    /// </summary>
+    /// <seealso cref="ItemInfo.CanCullFaceAgainstModel"/>
+    /// <seealso cref="GetItemsAt"/>
+    // TODO: this will probably need to be decreased but 0.1 works for now
+    public const float MaxPositionInaccuracy = 0.1f;
+
+    /// <summary>
     /// Represents some information about an item.
     /// </summary>
     [PublicAPI]
@@ -50,7 +58,7 @@ public class Chunk {
         /// <param name="rotation">Item rotation.</param>
         /// <param name="path">The path the item is on.</param>
         /// <param name="endOfPath">End of path instruction.</param>
-        public ItemInfo(string id, Vector3Int position, int rotation, VertexPath path, EndOfPathInstruction endOfPath) {
+        public ItemInfo(string id, Vector3 position, float rotation, VertexPath path, EndOfPathInstruction endOfPath) {
             this.id = id;
             this.position = position;
             this.rotation = rotation;
@@ -61,7 +69,7 @@ public class Chunk {
             (worldPosition, worldRotation) = PathSpaceToWorldSpace(position);
 
             Vector3 currPathRot = _path.GetRotationAtDistance(position.x, _endOfPath).eulerAngles;
-            Vector3 prevPathRot = _path.GetRotationAtDistance(position.x - 1, _endOfPath).eulerAngles;
+            Vector3 prevPathRot = _path.GetRotationAtDistance(position.x - 1f, _endOfPath).eulerAngles;
             float pathEulerDiff = Mathf.Max(Mathf.Abs(Mathf.DeltaAngle(prevPathRot.x, currPathRot.x)),
                 Mathf.Abs(Mathf.DeltaAngle(prevPathRot.y, currPathRot.y)),
                 Mathf.Abs(Mathf.DeltaAngle(prevPathRot.z, currPathRot.z)));
@@ -83,11 +91,11 @@ public class Chunk {
         /// <summary>
         /// Item position.
         /// </summary>
-        public Vector3Int position { get; }
+        public Vector3 position { get; }
         /// <summary>
         /// Item rotation.
         /// </summary>
-        public int rotation { get; }
+        public float rotation { get; }
         /// <summary>
         /// Item world position.
         /// </summary>
@@ -160,21 +168,11 @@ public class Chunk {
         }
 
         /// <summary>
-        /// Converts an integer direction from local to world space.
+        /// Converts a direction from local to path space.
         /// </summary>
         /// <param name="direction">The direction in local space.</param>
-        /// <returns>The direction in world space.</returns>
-        public Vector3Int DirectionToWorldSpaceInt(Vector3Int direction) {
-            Vector3 rotDir = DirectionToWorldSpace(direction);
-            return new Vector3Int((int)rotDir.x, (int)rotDir.y, (int)rotDir.z);
-        }
-
-        /// <summary>
-        /// Converts a direction from local to world space.
-        /// </summary>
-        /// <param name="direction">The direction in local space.</param>
-        /// <returns>The direction in world space.</returns>
-        public Vector3 DirectionToWorldSpace(Vector3Int direction) => _dirRot * direction;
+        /// <returns>The direction in path space.</returns>
+        public Vector3 DirectionToPathSpace(Vector3 direction) => _dirRot * direction;
 
         /// <summary>
         /// Converts a position in path space to world space.
@@ -210,10 +208,12 @@ public class Chunk {
             IEnumerable<Vector3> rightVert = right.vertices.Select(rightInfo.VertexToPathSpace);
             Vector3 rightMin = new(rightVert.Min(v => v.x), rightVert.Min(v => v.y), rightVert.Min(v => v.z));
             Vector3 rightMax = new(rightVert.Max(v => v.x), rightVert.Max(v => v.y), rightVert.Max(v => v.z));
-            bool allLeftInsideRight = leftVert.All(v => v.x >= rightMin.x - 0.1f && v.x <= rightMax.x + 0.1f &&
-                v.y >= rightMin.y - 0.1f && v.y <= rightMax.y + 0.1f && v.z >= rightMin.z - 0.1f && v.z <= rightMax.z + 0.1f);
+            bool allLeftInsideRight = leftVert.All(
+                v => v.x >= rightMin.x - MaxPositionInaccuracy && v.x <= rightMax.x + MaxPositionInaccuracy &&
+                v.y >= rightMin.y - MaxPositionInaccuracy && v.y <= rightMax.y + MaxPositionInaccuracy &&
+                v.z >= rightMin.z - MaxPositionInaccuracy && v.z <= rightMax.z + MaxPositionInaccuracy);
             return allLeftInsideRight &&
-                leftInfo.DirectionToWorldSpace(left.direction) == -rightInfo.DirectionToWorldSpace(right.direction);
+                leftInfo.DirectionToPathSpace(left.direction) == -rightInfo.DirectionToPathSpace(right.direction);
         }
     }
 
@@ -225,7 +225,7 @@ public class Chunk {
     /// <summary>
     /// All items in this chunk.
     /// </summary>
-    public IReadOnlyDictionary<Vector3Int, ItemInfo> items => _items;
+    public IEnumerable<ItemInfo> items => _items.Values.SelectMany(x => x);
 
     /// <summary>
     /// All items' <see cref="GameObject"/>s, <see cref="Transform"/>s and
@@ -233,7 +233,7 @@ public class Chunk {
     /// </summary>
     public IReadOnlyList<(ItemInfo, GameObject, Transform, bool)> itemObjects => _itemObjects;
 
-    private readonly Dictionary<Vector3Int, ItemInfo> _items = new();
+    private readonly Dictionary<Vector3Int, List<ItemInfo>> _items = new();
     private readonly GameObject? _parentObj;
     private readonly Transform? _parent;
     private readonly List<(ItemInfo, GameObject, Transform, bool)> _itemObjects = new();
@@ -292,9 +292,15 @@ public class Chunk {
     /// <returns>The created item's <see cref="GameObject"/></returns>
     /// <seealso cref="UpdateItemAnimationPositions"/>
     /// <seealso cref="UpdateMeshes"/>
-    public GameObject SetItem(string id, Vector3Int position, int rotation, GameObject prefab) {
+    public GameObject SetItem(string id, Vector3 position, float rotation, GameObject prefab) {
         ItemInfo info = new(id, position, rotation, _path, _endOfPath);
-        _items[position] = info;
+        Vector3Int flooredPos = new((int)position.x, (int)position.y, (int)position.z);
+        if(!_items.TryGetValue(flooredPos, out List<ItemInfo> items)) {
+            items = new List<ItemInfo>();
+            _items[flooredPos] = items;
+        }
+        items.Add(info);
+
         GameObject? obj = prefab ? Object.Instantiate(prefab, info.worldPosition, info.worldRotation, _parent) : null;
         if(!obj)
             return obj!;
@@ -311,13 +317,34 @@ public class Chunk {
     }
 
     /// <summary>
+    /// Gets all items in this chunk near the specified position.
+    /// </summary>
+    /// <param name="position">The position to get blocks at.</param>
+    /// <returns>An enumerable of all items near the specified position.</returns>
+    /// <remarks>
+    /// "Near" is distance between items being &lt;= <see cref="MaxPositionInaccuracy"/>
+    /// and the floored positions being equal (eg. floored (1337.31, 69.5, 420.96) is (1337, 69, 420))
+    /// </remarks>
+    public IEnumerable<ItemInfo> GetItemsAt(Vector3 position) {
+        Vector3Int flooredPos = new((int)position.x, (int)position.y, (int)position.z);
+        if(!_items.TryGetValue(flooredPos, out List<ItemInfo> items))
+            yield break;
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+        foreach(ItemInfo item in items) {
+            float distance = Vector3.Distance(position, item.position);
+            if(distance <= MaxPositionInaccuracy)
+                yield return item;
+        }
+    }
+
+    /// <summary>
     /// Updates the information about item animations. Should be called when you're done adding items to the chunk.
     /// </summary>
     /// <seealso cref="SetItem"/>
     public void UpdateItemAnimationPositions() {
         _maxRenderX = float.NegativeInfinity;
         _minRenderX = float.PositiveInfinity;
-        foreach(ItemInfo item in _items.Values) {
+        foreach(ItemInfo item in items) {
             item.CacheAnimationValues();
             _minRenderX = Mathf.Min(_minRenderX, item.position.x);
             _maxRenderX = Mathf.Max(_maxRenderX, item.inAnimationEnd);
@@ -341,10 +368,10 @@ public class Chunk {
         List<Color> colors = new();
 
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach(KeyValuePair<Vector3Int, ItemInfo> item in _items) {
-            if(item.Value.id != id)
+        foreach(ItemInfo item in items) {
+            if(item.id != id)
                 continue;
-            GenerateMesh(vertices, triangles, uvs, fakeUvs, colors, item.Key, item.Value);
+            GenerateMesh(vertices, triangles, uvs, fakeUvs, colors, item);
         }
 
         mesh.SetVertices(vertices);
@@ -360,11 +387,11 @@ public class Chunk {
     }
 
     private void GenerateMesh(ICollection<Vector3> vertices, ICollection<int> triangles, List<Vector2> uvs,
-        ICollection<Vector2> fakeUvs, ICollection<Color> colors, Vector3Int position, ItemInfo item) {
+        ICollection<Vector2> fakeUvs, ICollection<Color> colors, ItemInfo item) {
         if(!item.model.HasValue)
             return;
         // """"color""""
-        Color color = new(item.worldPosition.x, item.worldPosition.y, item.worldPosition.z, position.x);
+        Color color = new(item.worldPosition.x, item.worldPosition.y, item.worldPosition.z, item.position.x);
         Vector2 fakeUv = new(item.outAnimationEnd, item.inAnimationEnd);
         foreach(ItemModels.Face face in item.model.Value.faces) {
             if(CanCull(item, face))
@@ -375,7 +402,7 @@ public class Chunk {
             foreach(Vector3 vertex in face.vertices) {
                 // TODO: find a better way to fix this
                 // offset vertically to fix noticeable z-fighting
-                vertices.Add(item.VertexToWorldSpace(vertex) + new Vector3(0f, position.x % 100f / 10000f, 0f));
+                vertices.Add(item.VertexToWorldSpace(vertex) + new Vector3(0f, item.position.x % 100f / 10000f, 0f));
                 colors.Add(color);
                 fakeUvs.Add(fakeUv);
             }
@@ -388,15 +415,20 @@ public class Chunk {
     }
 
     private bool CanCull(ItemInfo item, ItemModels.Face face) {
-        Vector3Int direction = item.DirectionToWorldSpaceInt(face.direction);
-        Vector3Int checkPos = item.position + direction;
-        if(!_items.TryGetValue(checkPos, out ItemInfo neighbor) ||
-            !ItemModels.models.ContainsKey(neighbor.id) ||
-            // only cull transparent blocks with the same blocks
-            (ItemModels.transparent.Contains(item.id) || ItemModels.transparent.Contains(neighbor.id)) &&
-            item.id != neighbor.id)
-            return false;
-        return neighbor.CanCullFaceAgainstModel(item, face);
+        Vector3 direction = item.DirectionToPathSpace(face.direction);
+        Vector3 checkPos = item.position + direction;
+        bool noNeighbors = true; // https://i.imgflip.com/64sz4u.png
+        foreach(ItemInfo neighbor in GetItemsAt(checkPos)) {
+            noNeighbors = false;
+            // should be able to cull against all neighbors to cull
+            if(!ItemModels.models.ContainsKey(neighbor.id) ||
+                // only cull transparent blocks with the same blocks
+                (ItemModels.transparent.Contains(item.id) || ItemModels.transparent.Contains(neighbor.id)) &&
+                item.id != neighbor.id ||
+                !neighbor.CanCullFaceAgainstModel(item, face))
+                return false;
+        }
+        return !noNeighbors;
     }
 
     internal void FixedUpdate(float renderMin, float renderMax) {

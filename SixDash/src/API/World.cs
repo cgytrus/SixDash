@@ -40,7 +40,7 @@ public static class World {
     /// <summary>
     /// Fired when an item has finished loading.
     /// </summary>
-    public static event Action<string, Vector3Int, int, GameObject?>? itemLoaded;
+    public static event Action<string, Vector3, float, GameObject?>? itemLoaded;
 
     /// <summary>
     /// Fired when <see cref="WorldGenerator"/>.<see cref="WorldGenerator.Update"/> is called.
@@ -214,8 +214,8 @@ public static class World {
 
         for(int i = 0; i < levelData.GetLength(0); i++) {
             int id = levelData[i, 0];
-            Vector3Int position = new(levelData[i, 1], levelData[i, 2], levelData[i, 3]);
-            int rotation = levelData[i, 4];
+            Vector3 position = new(levelData[i, 1], levelData[i, 2], levelData[i, 3]);
+            float rotation = levelData[i, 4];
             GameObject prefab = itemPrefabs[id];
             LoadItem(prefab, path, endOfPath, id, position, rotation, official);
         }
@@ -287,7 +287,7 @@ public static class World {
     }
 
     private static void LoadItem(GameObject prefab, VertexPath path, EndOfPathInstruction endOfPath, int id,
-        Vector3Int position, int rotation, bool official) {
+        Vector3 position, float rotation, bool official) {
         string idStr = ItemIds.Get(official, id);
         GameObject obj = SetItem(path, endOfPath, idStr, position, rotation, prefab);
         items.Add(obj.GetComponent<ItemScript>());
@@ -332,9 +332,9 @@ public static class World {
         itemLoaded?.Invoke(idStr, position, rotation, obj);
     }
 
-    private static GameObject SetItem(VertexPath path, EndOfPathInstruction endOfPath, string id, Vector3Int position,
-        int rotation, GameObject prefab) {
-        int chunkPos = position.x / ChunkWidth;
+    private static GameObject SetItem(VertexPath path, EndOfPathInstruction endOfPath, string id, Vector3 position,
+        float rotation, GameObject prefab) {
+        int chunkPos = (int)position.x / ChunkWidth;
         if(chunks.TryGetValue(chunkPos, out Chunk? chunk))
             return chunk.SetItem(id, position, rotation, prefab);
         chunk = new Chunk(path, endOfPath, wallMaterials, outlines);

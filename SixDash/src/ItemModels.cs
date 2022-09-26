@@ -18,7 +18,7 @@ public static class ItemModels {
     /// <param name="triangles">Triangles.</param>
     /// <param name="uvs">Texture UV coordinates.</param>
     /// <param name="direction">The direction the face is facing.</param>
-    public record struct Face(Vector3[] vertices, int[] triangles, Vector2[] uvs, Vector3Int direction);
+    public record struct Face(Vector3[] vertices, int[] triangles, Vector2[] uvs, Vector3 direction);
 
     /// <summary>
     /// Item model.
@@ -26,7 +26,7 @@ public static class ItemModels {
     /// <param name="faces">Model faces.</param>
     public record struct Model(Face[] faces);
 
-    private static Face GeneratePlane(Vector3 offset, Vector3Int direction, float width, float height, int detail) {
+    private static Face GeneratePlane(Vector3 offset, Vector3 direction, float width, float height, int detail) {
         Vector3 dir = new Vector3(direction.z, direction.y, direction.x).normalized;
         Quaternion rot = Quaternion.LookRotation(dir);
         int verticesPerRow = detail + 2;
@@ -53,10 +53,10 @@ public static class ItemModels {
                 triangles[i++] = x + (y + 1) * verticesPerRow;
                 triangles[i++] = x + y * verticesPerRow;
             }
-        return new Face(vertices, triangles, uvs, direction);
+        return new Face(vertices, triangles, uvs, direction.normalized);
     }
 
-    private static Face GenerateTriangle(Vector3 offset, Vector3Int direction, float rotation, float width,
+    private static Face GenerateTriangle(Vector3 offset, Vector3 direction, float rotation, float width,
         float height, int detail) {
         Vector3 dir = new Vector3(direction.z, direction.y, direction.x).normalized;
         Quaternion rot = Quaternion.Euler(new Vector3(rotation, 0f)) * Quaternion.LookRotation(dir);
@@ -89,7 +89,7 @@ public static class ItemModels {
                 triangles[i++] = idk[(x + 1, y)];
                 triangles[i++] = idk[(x + 1, y + 1)];
             }
-        return new Face(vertices, triangles, uvs, direction);
+        return new Face(vertices, triangles, uvs, direction.normalized);
         int GetVerticesPerRow(int y) => verticesPerCol - y;
         int GetTrianglesPerRow(int y) => trianglesPerCol - y;
     }
@@ -98,12 +98,12 @@ public static class ItemModels {
         Model[] models = new Model[count];
         for(int i = 0; i < models.Length; i++)
             models[i] = new Model(new Face[] {
-                GeneratePlane(Vector3.forward * 0.5f, Vector3Int.right, 1f, 1f, i),
-                GeneratePlane(Vector3.back * 0.5f, Vector3Int.left, 1f, 1f, i),
-                GeneratePlane(Vector3.up * 0.5f, Vector3Int.up, 1f, 1f, i),
-                GeneratePlane(Vector3.down * 0.5f, Vector3Int.down, 1f, 1f, i),
-                GeneratePlane(Vector3.right * 0.5f, Vector3Int.forward, 1f, 1f, i),
-                GeneratePlane(Vector3.left * 0.5f, Vector3Int.back, 1f, 1f, i)
+                GeneratePlane(Vector3.forward * 0.5f, Vector3.right, 1f, 1f, i),
+                GeneratePlane(Vector3.back * 0.5f, Vector3.left, 1f, 1f, i),
+                GeneratePlane(Vector3.up * 0.5f, Vector3.up, 1f, 1f, i),
+                GeneratePlane(Vector3.down * 0.5f, Vector3.down, 1f, 1f, i),
+                GeneratePlane(Vector3.right * 0.5f, Vector3.forward, 1f, 1f, i),
+                GeneratePlane(Vector3.left * 0.5f, Vector3.back, 1f, 1f, i)
             });
         return models;
     }
@@ -113,12 +113,12 @@ public static class ItemModels {
         Model[] models = new Model[count];
         for(int i = 0; i < models.Length; i++)
             models[i] = new Model(new Face[] {
-                GeneratePlane(Vector3.forward * 0.5f + Vector3.up * 0.25f, Vector3Int.right, 1f, 0.5f, i),
-                GeneratePlane(Vector3.back * 0.5f + Vector3.up * 0.25f, Vector3Int.left, 1f, 0.5f, i),
-                GeneratePlane(Vector3.up * 0.5f, Vector3Int.up, 1f, 1f, i),
-                GeneratePlane(Vector3.zero, Vector3Int.down, 1f, 1f, i),
-                GeneratePlane(Vector3.right * 0.5f + Vector3.up * 0.25f, Vector3Int.forward, 1f, 0.5f, i),
-                GeneratePlane(Vector3.left * 0.5f + Vector3.up * 0.25f, Vector3Int.back, 1f, 0.5f, i)
+                GeneratePlane(Vector3.forward * 0.5f + Vector3.up * 0.25f, Vector3.right, 1f, 0.5f, i),
+                GeneratePlane(Vector3.back * 0.5f + Vector3.up * 0.25f, Vector3.left, 1f, 0.5f, i),
+                GeneratePlane(Vector3.up * 0.5f, Vector3.up, 1f, 1f, i),
+                GeneratePlane(Vector3.zero, Vector3.down, 1f, 1f, i),
+                GeneratePlane(Vector3.right * 0.5f + Vector3.up * 0.25f, Vector3.forward, 1f, 0.5f, i),
+                GeneratePlane(Vector3.left * 0.5f + Vector3.up * 0.25f, Vector3.back, 1f, 0.5f, i)
             });
         return models;
     }
@@ -128,11 +128,11 @@ public static class ItemModels {
         Model[] models = new Model[count];
         for(int i = 0; i < models.Length; i++)
             models[i] = new Model(new Face[] {
-                GeneratePlane(Vector3.forward * 0.5f, Vector3Int.right, 1f, 1f, i),
-                GeneratePlane(Vector3.zero, Vector3Int.up + Vector3Int.left, 1f, Mathf.Sqrt(2f), i),
-                GeneratePlane(Vector3.down * 0.5f, Vector3Int.down, 1f, 1f, i),
-                GenerateTriangle(Vector3.right * 0.5f, Vector3Int.forward, 0f, 1f, 1f, i),
-                GenerateTriangle(Vector3.left * 0.5f, Vector3Int.back, -90f, 1f, 1f, i)
+                GeneratePlane(Vector3.forward * 0.5f, Vector3.right, 1f, 1f, i),
+                GeneratePlane(Vector3.zero, Vector3.up + Vector3.left, 1f, Mathf.Sqrt(2f), i),
+                GeneratePlane(Vector3.down * 0.5f, Vector3.down, 1f, 1f, i),
+                GenerateTriangle(Vector3.right * 0.5f, Vector3.forward, 0f, 1f, 1f, i),
+                GenerateTriangle(Vector3.left * 0.5f, Vector3.back, -90f, 1f, 1f, i)
             });
         return models;
     }
