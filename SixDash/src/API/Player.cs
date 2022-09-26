@@ -35,6 +35,11 @@ public static class Player {
     public static PlayerScript? scriptInstance { get; private set; }
 
     /// <summary>
+    /// Instance of the current player's <see cref="PathFollower"/>.
+    /// </summary>
+    public static PathFollower? pathFollowerInstance { get; private set; }
+
+    /// <summary>
     /// The initial speed of the player in the current level.
     /// </summary>
     public static float initialSpeed { get; private set; }
@@ -79,6 +84,11 @@ public static class Player {
         World.levelLoading += () => {
             // TODO: get rid of FindObjectOfType if possible
             initialSpeed = Object.FindObjectOfType<PathFollower>().speed;
+        };
+
+        On.PathFollower.Awake += (orig, self) => {
+            pathFollowerInstance = self;
+            orig(self);
         };
     }
 
