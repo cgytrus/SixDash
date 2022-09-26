@@ -15,6 +15,11 @@ namespace SixDash.API;
 [PublicAPI]
 public static class Player {
     /// <summary>
+    /// Vanilla respawn time.
+    /// </summary>
+    public const float VanillaRespawnTime = 1.2f;
+
+    /// <summary>
     /// Instance of the current player's <see cref="GameObject"/>.
     /// </summary>
     public static GameObject? gameObjectInstance { get; private set; }
@@ -33,6 +38,11 @@ public static class Player {
     /// The initial speed of the player in the current level.
     /// </summary>
     public static float initialSpeed { get; private set; }
+
+    /// <summary>
+    /// Respawn time of the player on death. Works as a hook (get original value, return modified value).
+    /// </summary>
+    public static event Func<float, float> respawnTime = orig => orig;
 
     /// <summary>
     /// Fired when the player is spawned. Includes the initial spawn and all the subsequent respawns.
@@ -107,7 +117,7 @@ public static class Player {
 
     private static void DeathScriptUpdate(On.DeathScript.orig_Update orig, DeathScript self) {
         self.timePassed += Time.deltaTime;
-        if(self.timePassed < 1.2f)
+        if(self.timePassed < respawnTime(VanillaRespawnTime))
             return;
 
         Object.Destroy(self.gameObject);
