@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Prepare artifact
-      run: mkdir ./artifact/BepInEx/plugins ./artifact/BepInEx/patchers |
+      run: mkdir -p ./artifact/BepInEx/plugins ./artifact/BepInEx/patchers |
         cp ./SixDash/bin/**/SixDash.*l ./artifact/BepInEx/plugins |
         cp ./SixDash.Patcher/bin/**/SixDash.Patcher.dll ./artifact/BepInEx/patchers |
         cp ./meta/* ./artifact
