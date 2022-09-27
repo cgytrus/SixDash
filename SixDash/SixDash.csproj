@@ -10,32 +10,16 @@
     <Nullable>enable</Nullable>
     <DefineConstants>UNITY_STANDALONE_WIN</DefineConstants>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>Publicizer001</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
-    <PackageReference Include="BepInEx.Core" Version="5.*" />
-    <PackageReference Include="UnityEngine.Modules" Version="2021.3.6" IncludeAssets="compile" />
+    <PackageReference Include="3Dash.GameLibs" Version="1.2.0-r.0" />
+    <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
   </ItemGroup>
 
-  <Import Project="PluginInfo.props" />
-
-  <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>libs\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="MMHOOK_Assembly-CSharp">
-      <HintPath>libs\MMHOOK_Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="PathCreator">
-      <HintPath>libs\PathCreator.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>libs\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>libs\UnityEngine.UI.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+  <Import Project="MMHookGen.targets" />
+  <Import Project="PluginInfo.targets" />
 
 </Project>

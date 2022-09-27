@@ -1,4 +1,4 @@
-﻿**/libs
+﻿**/mmhook
 .idea
 
 # Created by .ignore support plugin (hsz.mobi)
@@ -383,4 +383,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-

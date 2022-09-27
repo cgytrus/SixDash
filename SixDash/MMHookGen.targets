@@ -1,0 +1,65 @@
+﻿<Project>
+    <ItemGroup>
+        <Reference Include="MMHOOK_Assembly-CSharp" HintPath="mmhook\MMHOOK_Assembly-CSharp.dll" />
+        <PackageReference Include="MonoMod.RuntimeDetour" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssemblies="false" />
+        <PackageReference Include="MonoMod.Utils" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssemblies="false" />
+        <PackageReference Include="MonoMod" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssemblies="false" />
+        <PackageReference Include="Mono.Cecil" Version="0.11.4" GeneratePathProperty="true" ReferenceOutputAssemblies="false" />
+        <PackageReference Include="MonoMod.RuntimeDetour.HookGen" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssemblies="false" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <MMHOOKDirectory>$(MSBuildProjectDirectory)\mmhook\</MMHOOKDirectory>
+        <MMHOOKVersionPath>$(MMHOOKDirectory)version.txt</MMHOOKVersionPath>
+        <MMHOOKAssemblyPath>$(MMHOOKDirectory)MMHOOK_Assembly-CSharp.dll</MMHOOKAssemblyPath>
+        <HookGenPath>$(MMHOOKDirectory)MonoMod.RuntimeDetour.HookGen.exe</HookGenPath>
+    </PropertyGroup>
+
+    <Target Name="GetLibsVersions" DependsOnTargets="RunResolvePackageDependencies" Returns="GameLibsName;GameLibsVersion;MMHOOKVersion">
+        <!-- Get GameLibs name and version -->
+        <ItemGroup>
+            <_GameLibs Include="@(PackageDefinitions)" Condition="$([System.String]::Copy(%(Name)).EndsWith('.GameLibs'))" />
+        </ItemGroup>
+        <PropertyGroup>
+            <GameLibsName>%(_GameLibs.Name)</GameLibsName>
+            <GameLibsVersion>%(_GameLibs.Version)</GameLibsVersion>
+        </PropertyGroup>
+
+        <!-- Get MMHOOK version -->
+        <ReadLinesFromFile File="$(MMHOOKVersionPath)">
+            <Output TaskParameter="Lines" PropertyName="MMHOOKVersion" />
+        </ReadLinesFromFile>
+    </Target>
+
+    <Target Name="RunMonoModHookGen" AfterTargets="CollectPackageReferences" DependsOnTargets="GetLibsVersions">
+        <PropertyGroup>
+            <!-- couldn't figure out a way to make this work -->
+            <!--<GameLibsPkg>$([System.String]::Concat('Pkg', $(GameLibsName.Replace('.', '_'))))</GameLibsPkg>-->
+            <GameAssemblyPath>$(NuGetPackageRoot)$(GameLibsName.ToLower())\$(GameLibsVersion)\lib\$(TargetFramework)\Assembly-CSharp.dll</GameAssemblyPath>
+        </PropertyGroup>
+
+        <ItemGroup>
+            <CopyFiles Include="$(PkgMonoMod_RuntimeDetour)\lib\net452\MonoMod.RuntimeDetour.dll" />
+            <CopyFiles Include="$(PkgMonoMod_Utils)\lib\net452\MonoMod.Utils.dll" />
+            <CopyFiles Include="$(PkgMonoMod)\lib\net452\MonoMod.exe" />
+            <CopyFiles Include="$(PkgMono_Cecil)\lib\net40\Mono.Cecil.dll" />
+            <CopyFiles Include="$(PkgMonoMod_RuntimeDetour_HookGen)\lib\net452\MonoMod.RuntimeDetour.HookGen.exe" />
+        </ItemGroup>
+
+        <MakeDir Directories="$(MMHOOKDirectory)" />
+
+        <!-- Copy HookGen and dependencies -->
+        <Copy SourceFiles="@(CopyFiles)" DestinationFolder="$(MMHOOKDirectory)"
+              UseHardlinksIfPossible="true" SkipUnchangedFiles="true" />
+
+        <!-- Run HookGen -->
+        <Message Importance="normal" Text="Running HookGen" Condition="'$(MMHOOKVersion)' != '$(GameLibsVersion)'" />
+        <Exec Command="$(HookGenPath) --private $(GameAssemblyPath) $(MMHOOKAssemblyPath)"
+              WorkingDirectory="$(MMHOOKDirectory)" ConsoleToMSBuild="true"
+              Condition="'$(MMHOOKVersion)' != '$(GameLibsVersion)'" />
+
+        <!-- Save the current MMHOOK version -->
+        <WriteLinesToFile File="$(MMHOOKVersionPath)" Overwrite="true" Lines="$(GameLibsVersion)"
+                          Condition="'$(MMHOOKVersion)' != '$(GameLibsVersion)'" />
+    </Target>
+</Project>
