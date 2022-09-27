@@ -23,12 +23,11 @@ jobs:
     - name: Build
       run: dotnet build -c Release --no-restore
     - name: Prepare artifact
-      run: mkdir -p artifact/BepInEx/plugins | mkdir -p artifact/BepInEx/patchers | mkdir -p artifact/3Dash_Data/StreamingAssets |
-          cp ./SixDash/bin/Release/netstandard2.1/SixDash.dll ./artifact/BepInEx/plugins |
-          cp ./SixDash/bin/Release/netstandard2.1/SixDash.xml ./artifact/BepInEx/plugins |
+      run: mkdir -p artifact/BepInEx/plugins artifact/BepInEx/patchers artifact/3Dash_Data/StreamingAssets |
+          cp ./SixDash/bin/Release/netstandard2.1/SixDash.dll ./SixDash/bin/Release/netstandard2.1/SixDash.xml ./artifact/BepInEx/plugins |
           cp ./SixDash.Patcher/bin/Release/net35/SixDash.Patcher.dll ./artifact/BepInEx/patchers |
           cp ./assets/6dash ./artifact/3Dash_Data/StreamingAssets |
-          cp ./meta/icon.png ./artifact | cp ./meta/manifest.json ./artifact | cp ./meta/README.md ./artifact
+          cp ./meta/icon.png ./meta/manifest.json ./meta/README.md ./artifact |
     - name: Upload artifact
       uses: actions/upload-artifact@v3.1.0
       with:
