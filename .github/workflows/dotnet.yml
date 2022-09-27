@@ -21,12 +21,12 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -c Release --no-restore
     - name: Prepare artifact
-      run: mkdir -p ./artifact/BepInEx/plugins ./artifact/BepInEx/patchers |
-        cp ./SixDash/bin/**/SixDash.*l ./artifact/BepInEx/plugins |
-        cp ./SixDash.Patcher/bin/**/SixDash.Patcher.dll ./artifact/BepInEx/patchers |
-        cp ./meta/* ./artifact
+      run: mkdir -p artifact/BepInEx/plugins artifact/BepInEx/patchers |
+          cp SixDash/bin/Release/netstandard2.0/SixDash.*l artifact/BepInEx/plugins |
+          cp SixDash.Patcher/bin/Release/net35/SixDash.Patcher.dll artifact/BepInEx/patchers |
+          cp meta/* artifact
     - name: Upload artifact
       uses: actions/upload-artifact@v3.1.0
       with:
