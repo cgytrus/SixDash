@@ -31,10 +31,10 @@
         </ReadLinesFromFile>
     </Target>
 
-    <Target Name="RunMonoModHookGen" AfterTargets="CollectPackageReferences" DependsOnTargets="GetLibsVersions">
+    <!-- god damn ffs fuck the after restore shit it's too inconsistent thanks microsoft -->
+    <Target Name="BeforeBuild" />
+    <Target Name="RunMonoModHookGen" BeforeTargets="BeforeBuild" DependsOnTargets="GetLibsVersions">
         <PropertyGroup>
-            <!-- couldn't figure out a way to make this work -->
-            <!--<GameLibsPkg>$([System.String]::Concat('Pkg', $(GameLibsName.Replace('.', '_'))))</GameLibsPkg>-->
             <GameAssemblyPath>$(NuGetPackageRoot)$(GameLibsName.ToLower())\$(GameLibsVersion)\lib\$(TargetFramework)\Assembly-CSharp.dll</GameAssemblyPath>
         </PropertyGroup>
 
