@@ -22,8 +22,13 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Prepare artifact
+      run: mkdir ./artifact/BepInEx/plugins ./artifact/BepInEx/patchers |
+        cp ./SixDash/bin/**/SixDash.*l ./artifact/BepInEx/plugins |
+        cp ./SixDash.Patcher/bin/**/SixDash.Patcher.dll ./artifact/BepInEx/patchers |
+        cp ./meta/* ./artifact
     - name: Upload artifact
       uses: actions/upload-artifact@v3.1.0
       with:
         name: SixDash-latest
-        path: SixDash/bin/**/SixDash.*l
+        path: artifact
