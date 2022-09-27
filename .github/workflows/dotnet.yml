@@ -23,8 +23,8 @@ jobs:
     - name: Build
       run: dotnet build -c Release --no-restore
     - name: Prepare artifact
-      run: mkdir -p ./artifact/BepInEx/plugins |
-          mkdir -p ./artifact/BepInEx/patchers |
+      run: mkdir -p artifact/BepInEx/plugins |
+          mkdir -p artifact/BepInEx/patchers |
           cp ./SixDash/bin/Release/netstandard2.1/SixDash.dll ./artifact/BepInEx/plugins |
           cp ./SixDash/bin/Release/netstandard2.1/SixDash.xml ./artifact/BepInEx/plugins |
           cp ./SixDash.Patcher/bin/Release/net35/SixDash.Patcher.dll ./artifact/BepInEx/patchers |
