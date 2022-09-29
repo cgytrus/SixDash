@@ -70,9 +70,6 @@ jobs:
           name: SixDash-assets
           path: artifact
 
-      - name: Return license
-        uses: game-ci/unity-return-license@v2
-
   publish:
     runs-on: ubuntu-latest
     needs: [ build, assets ]
