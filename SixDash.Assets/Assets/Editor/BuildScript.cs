@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using JetBrains.Annotations;
@@ -29,8 +30,8 @@ public static class BuildScript {
                 break;
         }
 
-        AssetBundleManifest manifest =
-            BuildPipeline.BuildAssetBundles(options["customBuildPath"], BuildAssetBundleOptions.None, buildTarget);
+        string buildPath = Path.GetDiretoryName(Path.GetDirectoryName(options["customBuildPath"]));
+        AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles(buildPath, BuildAssetBundleOptions.None, buildTarget);
         Console.WriteLine($"Built {manifest.GetAllAssetBundles().Length.ToString()} AssetBundles.");
         EditorApplication.Exit(0);
     }

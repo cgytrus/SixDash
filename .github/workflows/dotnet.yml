@@ -57,12 +57,11 @@ jobs:
           buildMethod: BuildScript.Build
           targetPlatform: StandaloneLinux64
           buildsPath: AssetBundles
-          buildName: ''
           versioning: None
 
       - run: |
           mkdir -p artifact/3Dash_Data/StreamingAssets
-          cp ./AssetBundles/StandaloneLinux64/6dash ./artifact/3Dash_Data/StreamingAssets
+          cp ./AssetBundles/6dash ./artifact/3Dash_Data/StreamingAssets
           cp ./meta/icon.png ./meta/manifest.json ./meta/README.md ./artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v3.1.0
