@@ -37,6 +37,12 @@ jobs:
 
   assets:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64
+          - StandaloneOSX
     steps:
     - uses: actions/checkout@v3
     - run: cd SixDash.Assets
@@ -55,13 +61,12 @@ jobs:
         projectPath: SixDash.Assets
         unityVersion: 2021.3.6f1
         buildMethod: BuildScript.Build
-        targetPlatform: StandaloneLinux64
         buildsPath: AssetBundles
         versioning: None
 
     - run: |
         mkdir -p artifact/3Dash_Data/StreamingAssets
-        cp ./AssetBundles/6dash ./AssetBundles/6dash.manifest ./artifact/3Dash_Data/StreamingAssets
+        cp ./AssetBundles/${{ matrix.targetPlatform }}/6dash ./artifact/3Dash_Data/StreamingAssets
     - name: Upload artifact
       uses: actions/upload-artifact@v3.1.0
       with:
