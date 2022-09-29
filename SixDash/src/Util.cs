@@ -117,10 +117,12 @@ public static class Util {
     /// <returns>The loaded AssetBundle.</returns>
     public static AssetBundle LoadPlatformAssetBundle(string path) {
         string platform = Application.platform switch {
-            RuntimePlatform.WindowsEditor or RuntimePlatform.WindowsPlayer or RuntimePlatform.WindowsServer => "win",
-            RuntimePlatform.LinuxEditor or RuntimePlatform.LinuxPlayer or RuntimePlatform.LinuxServer => "lin",
-            RuntimePlatform.OSXEditor or RuntimePlatform.OSXPlayer or RuntimePlatform.OSXServer => "mac",
-            _ => "unk"
+            RuntimePlatform.WindowsEditor or RuntimePlatform.WindowsPlayer or RuntimePlatform.WindowsServer =>
+                "StandaloneWindows64",
+            RuntimePlatform.LinuxEditor or RuntimePlatform.LinuxPlayer or RuntimePlatform.LinuxServer =>
+                "StandaloneLinux64",
+            RuntimePlatform.OSXEditor or RuntimePlatform.OSXPlayer or RuntimePlatform.OSXServer => "StandaloneOSX",
+            _ => "Unknown"
         };
         return AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, $"{path}-{platform}"));
     }
