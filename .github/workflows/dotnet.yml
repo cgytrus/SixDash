@@ -46,7 +46,7 @@ jobs:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
-            Library-
+            Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
 
       - name: Build AssetBundle
         uses: game-ci/unity-builder@v2
@@ -55,6 +55,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
+          customImage: 'unityci/editor:ubuntu-2021.3.6f1-base-0'
           projectPath: SixDash.Assets
           unityVersion: 2021.3.6f1
           buildMethod: BuildScript.Build
