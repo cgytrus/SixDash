@@ -61,7 +61,7 @@ jobs:
 
     - run: |
         mkdir -p artifact/3Dash_Data/StreamingAssets
-        cp ./AssetBundles/6dash ./artifact/3Dash_Data/StreamingAssets
+        cp ./AssetBundles/6dash ./AssetBundles/6dash.manifest ./artifact/3Dash_Data/StreamingAssets
     - name: Upload artifact
       uses: actions/upload-artifact@v3.1.0
       with:
