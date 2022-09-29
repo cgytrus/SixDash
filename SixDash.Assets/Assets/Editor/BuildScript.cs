@@ -30,7 +30,7 @@ public static class BuildScript {
                 break;
         }
 
-        string buildPath = Path.GetDiretoryName(Path.GetDirectoryName(options["customBuildPath"]));
+        string buildPath = Path.GetDirectoryName(Path.GetDirectoryName(options["customBuildPath"]));
         AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles(buildPath, BuildAssetBundleOptions.None, buildTarget);
         Console.WriteLine($"Built {manifest.GetAllAssetBundles().Length.ToString()} AssetBundles.");
         EditorApplication.Exit(0);
