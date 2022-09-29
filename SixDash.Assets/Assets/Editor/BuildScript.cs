@@ -18,7 +18,7 @@ public static class BuildScript {
     public static void Build() {
         Dictionary<string, string> options = GetValidatedOptions();
 
-        BuildTarget buildTarget = (BuildTarget)Enum.Parse(typeof(BuildTarget), options["targetPlatform"]);
+        BuildTarget buildTarget = (BuildTarget)Enum.Parse(typeof(BuildTarget), options["buildTarget"]);
         switch (buildTarget) {
             case BuildTarget.Android:
                 Console.WriteLine("Android build not supported.");
