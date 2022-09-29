@@ -45,15 +45,12 @@ jobs:
         with:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: Library-
 
       - name: Build AssetBundle
         uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           customImage: 'unityci/editor:ubuntu-2021.3.6f1-base-0'
           projectPath: SixDash.Assets
@@ -61,7 +58,7 @@ jobs:
           buildMethod: BuildScript.Build
           targetPlatform: StandaloneLinux64
           buildsPath: AssetBundles
-          versioning: None
+          versioning: none
 
       - run: |
           mkdir -p artifact/3Dash_Data/StreamingAssets
@@ -72,6 +69,9 @@ jobs:
         with:
           name: SixDash-assets
           path: artifact
+
+      - name: Return license
+        uses: game-ci/unity-return-license@v2
 
   publish:
     runs-on: ubuntu-latest
