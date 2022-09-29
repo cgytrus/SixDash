@@ -30,7 +30,7 @@ public static class BuildScript {
         }
 
         AssetBundleManifest manifest =
-            BuildPipeline.BuildAssetBundles(options["buildsPath"], BuildAssetBundleOptions.None, buildTarget);
+            BuildPipeline.BuildAssetBundles(options["customBuildPath"], BuildAssetBundleOptions.None, buildTarget);
         Console.WriteLine($"Built {manifest.GetAllAssetBundles().Length.ToString()} AssetBundles.");
         EditorApplication.Exit(0);
     }
@@ -44,16 +44,16 @@ public static class BuildScript {
             EditorApplication.Exit(110);
         }
 
-        if(!validatedOptions.TryGetValue("targetPlatform", out string targetPlatform)) {
-            Console.WriteLine("Missing argument -targetPlatform");
+        if(!validatedOptions.TryGetValue("buildTarget", out string buildTarget)) {
+            Console.WriteLine("Missing argument -buildTarget");
             EditorApplication.Exit(120);
         }
 
-        if(!Enum.IsDefined(typeof(BuildTarget), targetPlatform ?? string.Empty))
+        if(!Enum.IsDefined(typeof(BuildTarget), buildTarget ?? string.Empty))
             EditorApplication.Exit(121);
 
-        if(!validatedOptions.TryGetValue("buildsPath", out string _)) {
-            Console.WriteLine("Missing argument -buildsPath");
+        if(!validatedOptions.TryGetValue("customBuildPath", out string _)) {
+            Console.WriteLine("Missing argument -customBuildPath");
             EditorApplication.Exit(130);
         }
 
