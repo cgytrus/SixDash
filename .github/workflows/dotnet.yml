@@ -50,8 +50,10 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: ${{ github.workspace }}/SixDash.Assets/Library
-        key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-        restore-keys: Library-
+        key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+        restore-keys: |
+          Library-${{ matrix.targetPlatform }}-
+          Library-
 
     - name: Build AssetBundle
       uses: game-ci/unity-builder@v2
