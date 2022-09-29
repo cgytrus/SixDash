@@ -58,7 +58,7 @@ jobs:
           buildMethod: BuildScript.Build
           targetPlatform: StandaloneLinux64
           buildsPath: AssetBundles
-          versioning: none
+          versioning: None
 
       - run: |
           mkdir -p artifact/3Dash_Data/StreamingAssets
