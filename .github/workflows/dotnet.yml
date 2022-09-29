@@ -43,7 +43,7 @@ jobs:
 
     - uses: actions/cache@v3
       with:
-        path: Library
+        path: ${{ github.workspace }}/SixDash.Assets/Library
         key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
         restore-keys: Library-
 
@@ -73,7 +73,6 @@ jobs:
     needs: [ build, assets ]
     steps:
     - uses: actions/checkout@v3
-    - run: cp ./meta/icon.png ./meta/manifest.json ./meta/README.md ./artifact
     - uses: actions/download-artifact@v3
       with:
         name: SixDash-build
@@ -82,6 +81,7 @@ jobs:
       with:
         name: SixDash-assets
         path: ${{ github.workspace }}/artifact
+    - run: cp ./meta/icon.png ./meta/manifest.json ./meta/README.md ./artifact
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3.1.0
