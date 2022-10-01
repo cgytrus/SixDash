@@ -1,4 +1,4 @@
-name: Publish on Thunderstore
+name: Publish Thunderstore
 # Publish release on Thunderstore
 
 on:
@@ -9,7 +9,7 @@ on:
   workflow_run:
     types: [ completed ]
     workflows:
-      - Publish development
+      - publish-dev
 
 jobs:
   publish:

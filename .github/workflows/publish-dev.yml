@@ -25,7 +25,7 @@ jobs:
 
     - uses: vimtor/action-zip@v1
       with:
-        files: ${{ needs.build.outputs.artifact_name }}
+        files: ${{ needs.build.outputs.artifact_name }}/**
         dest: SixDash-latest.zip
 
     - name: Update release
