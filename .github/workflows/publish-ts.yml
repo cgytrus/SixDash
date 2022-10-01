@@ -4,11 +4,7 @@ name: Publish Thunderstore
 on:
   workflow_dispatch:
   release:
-    types: [ released ]
-  # remove
-  push:
-    branches:
-      - '**'
+    types: [ published ]
 
 jobs:
   publish:
