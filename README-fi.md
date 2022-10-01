@@ -17,12 +17,23 @@ API ja optimointi modi [3Dash](https://delugedrop.itch.io/3dash):ille
 - Muita ominaisuuksia jotka voivat auttaa 3Dash modaajia
 
 ## Asennus
+### Thunderstore:sta (automaattisesti)
+ei saatavilla (*vielä*)
+
+### Thunderstore:sta (manuaalisesti)
+1. Mene modin [Thunderstore](https://3dash.thunderstore.io/package/ConfiG/6Dash) sivulle
+2. Seuraa manuaalisia asennus oheita
+
+### GitHub julkaisuista
 1. Lataa BepInEx asennusohjelma [skripti](https://gist.githubusercontent.com/cgytrus/29085a6bf179893666316a36e1c92bf6/raw/bepinex-installer.ps1)
 2. Laita asennus-scripti sinun 3Dash kansioon
 3. Käynnistä skripti oikea-klikkaamalla ja valitsemalla: `Run with Powershell`
 4. Sitten kun skripti on valmis jutuissaan, voit poistaa skripti tiedoston
 5. Lataa [6Dash](https://github.com/cgytrus/SixDash/releases/latest)
 6. Pura 6Dash zip tiedosto sinun 3Dash kansioon
+
+## Documentaatio
+Saatavilla osoitteessa https://6dash.cgyt.ru ja XML tiedostona (englaniksi)
 
 ## Muut käytetyt repositoryt
 - [popcron/gizmos](https://github.com/popcron/gizmos)
