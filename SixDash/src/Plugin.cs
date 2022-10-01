@@ -17,7 +17,7 @@ internal class Plugin : BaseUnityPlugin {
         instance = this;
 
         Logger.LogInfo("Loading assets");
-        AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "6dash"));
+        AssetBundle bundle = Util.LoadPlatformAssetBundle("6dash");
         World.LoadAssets(bundle);
 
         Logger.LogInfo("Applying patches");

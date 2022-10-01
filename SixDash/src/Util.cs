@@ -109,6 +109,24 @@ public static class Util {
                 logger.LogWarning(loaderException);
     }
 
+    /// <summary>
+    /// Loads an AssetBundle from <see cref="Application.streamingAssetsPath"/> with the specified path with
+    /// a platform identifier appended at the end.
+    /// </summary>
+    /// <param name="path">AssetBundle path inside <see cref="Application.streamingAssetsPath"/>.</param>
+    /// <returns>The loaded AssetBundle.</returns>
+    public static AssetBundle LoadPlatformAssetBundle(string path) {
+        string platform = Application.platform switch {
+            RuntimePlatform.WindowsEditor or RuntimePlatform.WindowsPlayer or RuntimePlatform.WindowsServer =>
+                "StandaloneWindows64",
+            RuntimePlatform.LinuxEditor or RuntimePlatform.LinuxPlayer or RuntimePlatform.LinuxServer =>
+                "StandaloneLinux64",
+            RuntimePlatform.OSXEditor or RuntimePlatform.OSXPlayer or RuntimePlatform.OSXServer => "StandaloneOSX",
+            _ => "Unknown"
+        };
+        return AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, $"{path}-{platform}"));
+    }
+
     // i ain't gonna document every easing hhh
 #pragma warning disable CS1591
     /// <summary>

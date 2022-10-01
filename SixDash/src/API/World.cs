@@ -119,7 +119,7 @@ public static class World {
     private static readonly int renderMaxProp = Shader.PropertyToID("_RenderMax");
 
     internal static void LoadAssets(AssetBundle bundle) {
-        _shader = bundle.LoadAsset<Shader>("Assets/6Dash/StandardLevelFade.shader");
+        _shader = bundle.LoadAsset<Shader>("Assets/StandardLevelFade.shader");
     }
 
     internal static void Patch() {
