@@ -3,6 +3,10 @@ name: Build
 on:
   workflow_dispatch:
   workflow_call:
+    outputs:
+      artifact_name:
+        description: "The first output string"
+        value: ${{ jobs.build-mod.outputs.artifact_name }}
   pull_request:
     branches:
       - '**'
@@ -15,6 +19,8 @@ jobs:
   build-mod:
     name: Build Mod
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.prepare-artifact.outputs.artifact_name }}
     steps:
       - uses: actions/checkout@v3
 
@@ -34,11 +40,11 @@ jobs:
           mkdir -p artifact/BepInEx/plugins artifact/BepInEx/patchers
           cp ./SixDash/bin/Release/netstandard2.1/SixDash.dll ./SixDash/bin/Release/netstandard2.1/SixDash.xml ./artifact/BepInEx/plugins
           cp ./SixDash.Patcher/bin/Release/net35/SixDash.Patcher.dll ./artifact/BepInEx/patchers
-          echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
+          echo "::set-output name=artifact_name::SixDash-$(git rev-parse --short HEAD)"
       - name: Upload artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: SixDash-${{ steps.prepare-artifact.outputs.short_sha }}
+          name: ${{ steps.prepare-artifact.outputs.artifact_name }}
           path: artifact
 
   build-assets:
@@ -79,9 +85,9 @@ jobs:
         run: |
           mkdir -p artifact/3Dash_Data/StreamingAssets
           sudo mv ./AssetBundles/${{ matrix.targetPlatform }}/6dash ./artifact/3Dash_Data/StreamingAssets/6dash-${{ matrix.targetPlatform }}
-          echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
+          echo "::set-output name=artifact_name::SixDash-$(git rev-parse --short HEAD)"
       - name: Upload artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: SixDash-${{ steps.prepare-artifact.outputs.short_sha }}
+          name: ${{ steps.prepare-artifact.outputs.artifact_name }}
           path: artifact
