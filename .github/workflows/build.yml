@@ -5,7 +5,6 @@ on:
   workflow_call:
     outputs:
       artifact_name:
-        description: "The first output string"
         value: ${{ jobs.build-mod.outputs.artifact_name }}
   pull_request:
     branches:
@@ -20,7 +19,7 @@ jobs:
     name: Build Mod
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.prepare-artifact.outputs.artifact_name }}
+      artifact_name: ${{ steps.prepare-artifact.outputs.artifact_name }}
     steps:
       - uses: actions/checkout@v3
 
