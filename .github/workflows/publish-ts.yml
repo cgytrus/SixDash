@@ -30,11 +30,7 @@ jobs:
           fileName: SixDash-${{ steps.get-version.outputs.version }}.zip
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: |
-          unzip SixDash-${{ steps.get-version.outputs.version }}.zip -d ./release
-          cd ./release
-          ls
-          cd ..
+      - run: unzip SixDash-${{ steps.get-version.outputs.version }}.zip -d ./release
 
       - name: Publish package
         uses: GreenTF/upload-thunderstore-package@v2.2
@@ -47,5 +43,5 @@ jobs:
           version: ${{ steps.get-version.outputs.version }}
           categories: Libraries Mods Tools
           deps: BepInEx-BepInExPack_3Dash@5.4.2100
-          token: ${{ secrets.THUNDERSTORE_TOKEN }}
+          token: ${{ secrets.THUNDERSTORE_DEV_TOKEN }}
           dev: true
