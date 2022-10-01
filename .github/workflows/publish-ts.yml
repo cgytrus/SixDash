@@ -20,8 +20,9 @@ jobs:
 
       - id: get-version
         run: |
-          version=$(echo $GITHUB_REF_NAME | cut -c 2)
+          version=$(echo $GITHUB_REF_NAME | cut -c 2-)
           echo "::set-output name=version::$version"
+          echo $GITHUB_REF_NAME
 
       - name: Download release
         uses: dsaltares/fetch-gh-release-asset@1.0.0
