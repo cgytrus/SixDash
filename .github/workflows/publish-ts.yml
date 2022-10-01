@@ -3,7 +3,7 @@ name: Publish Thunderstore package
 on:
   workflow_dispatch:
   release:
-    types: [ published ]
+    types: [ released ]
 
 jobs:
   publish:
@@ -39,9 +39,9 @@ jobs:
           community: 3Dash
           namespace: ConfiG
           name: 6Dash
-          description: An API and an optimization mod"
+          description: An API and an optimization mod
           version: ${{ steps.get-version.outputs.version }}
           categories: Libraries Mods Tools
-#          deps: BepInEx-BepInExPack_3Dash@5.4.2100
-          token: ${{ secrets.THUNDERSTORE_DEV_TOKEN }}
-          dev: true
+          deps: BepInEx-BepInExPack_3Dash@5.4.2100
+          token: ${{ secrets.THUNDERSTORE_TOKEN }}
+          dev: false
