@@ -26,7 +26,7 @@ jobs:
       - name: Download release
         uses: robinraju/release-downloader@v1.5
         with:
-          tag: $GITHUB_REF_NAME
+          tag: ${{ env.GITHUB_REF_NAME }}
           fileName: SixDash-${{ steps.get-version.outputs.version }}.zip
           token: ${{ secrets.GITHUB_TOKEN }}
 
