@@ -1,5 +1,4 @@
-name: Publish Thunderstore
-# Publish release on Thunderstore
+name: Publish Thunderstore package
 
 on:
   workflow_dispatch:
@@ -8,6 +7,7 @@ on:
 
 jobs:
   publish:
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
