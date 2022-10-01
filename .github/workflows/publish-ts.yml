@@ -5,9 +5,11 @@ on:
   workflow_dispatch:
   release:
     types: [ released ]
-  push:
-    branches:
-      - '**'
+# remove
+  workflow_run:
+    types: [ completed ]
+    workflows:
+      - Publish development
 
 jobs:
   publish:
