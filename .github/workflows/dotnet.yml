@@ -68,12 +68,7 @@ jobs:
 
     - run: |
         mkdir -p artifact/3Dash_Data/StreamingAssets
-        cd ./AssetBundles/${{ matrix.targetPlatform }}
-        ls -l
-        whoami
-        mv 6dash 6dash-${{ matrix.targetPlatform }}
-        cd ../../
-        mv ./AssetBundles/${{ matrix.targetPlatform }}/6dash-${{ matrix.targetPlatform }} ./artifact/3Dash_Data/StreamingAssets
+        sudo mv ./AssetBundles/${{ matrix.targetPlatform }}/6dash ./artifact/3Dash_Data/StreamingAssets/6dash-${{ matrix.targetPlatform }}
     - name: Upload artifact
       uses: actions/upload-artifact@v3.1.0
       with:
