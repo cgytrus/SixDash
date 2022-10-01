@@ -87,7 +87,11 @@ jobs:
         path: ${{ github.workspace }}/artifact
     - uses: actions/download-artifact@v3
       with:
-        name: SixDash-assets
+        name: SixDash-assets-StandaloneWindows64
+        path: ${{ github.workspace }}/artifact
+    - uses: actions/download-artifact@v3
+      with:
+        name: SixDash-assets-StandaloneOSX
         path: ${{ github.workspace }}/artifact
     - run: cp ./meta/icon.png ./meta/manifest.json ./meta/README.md ./artifact
 
