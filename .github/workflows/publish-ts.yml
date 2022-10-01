@@ -31,10 +31,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
+          unzip SixDash-${{ steps.get-version.outputs.version }}.zip -d ./release
           cd ./release
           ls
           cd ..
-          unzip SixDash-${{ steps.get-version.outputs.version }}.zip ./release
 
       - name: Publish package
         uses: GreenTF/upload-thunderstore-package@v2.2
