@@ -6,10 +6,9 @@ on:
   release:
     types: [ released ]
 # remove
-  workflow_run:
-    types: [ completed ]
-    workflows:
-      - publish-dev
+  push:
+    branches:
+      - '**'
 
 jobs:
   publish:

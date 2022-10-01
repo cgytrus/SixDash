@@ -21,11 +21,11 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: ${{ needs.build.outputs.artifact_name }}
-        path: ${{ github.workspace }}
+        path: ${{ github.workspace }}/artifact
 
     - uses: vimtor/action-zip@v1
       with:
-        files: ${{ needs.build.outputs.artifact_name }}/**
+        files: ${{ github.workspace }}/artifact
         dest: SixDash-latest.zip
 
     - name: Update release
