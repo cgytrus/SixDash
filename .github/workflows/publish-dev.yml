@@ -8,14 +8,13 @@ on:
     - '**'
 
 jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
   publish:
     runs-on: ubuntu-latest
+    needs: [ build ]
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Build
-      uses: ./.github/workflows/build.yml
-
     - uses: vimtor/action-zip@v1
       with:
         files: artifact
