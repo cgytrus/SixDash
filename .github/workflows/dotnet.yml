@@ -70,6 +70,7 @@ jobs:
         mkdir -p artifact/3Dash_Data/StreamingAssets
         cd ./AssetBundles/${{ matrix.targetPlatform }}
         ls -l
+        whoami
         mv 6dash 6dash-${{ matrix.targetPlatform }}
         cd ../../
         mv ./AssetBundles/${{ matrix.targetPlatform }}/6dash-${{ matrix.targetPlatform }} ./artifact/3Dash_Data/StreamingAssets
