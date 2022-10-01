@@ -1,0 +1,52 @@
+name: Publish on Thunderstore
+# Publish release on Thunderstore
+
+on:
+  workflow_dispatch:
+  release:
+    types: [ released ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare meta
+        run: |
+          rm -f README.md icon.png
+          mkdir ./release
+          cp ./meta/* ./release
+
+      - id: get-version
+        run: |
+          version=$(echo $GITHUB_REF_NAME | cut -c 2)
+          echo "::set-output name=version::$version"
+
+      - name: Download release
+        uses: dsaltares/fetch-gh-release-asset@1.0.0
+        with:
+          version: $GITHUB_REF_NAME
+          file: SixDash-${{ steps.get-version.outputs.version }}.zip
+          target: release.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: |
+          unzip release.zip ./release
+          cd ./release
+          ls
+          cd ..
+
+      - name: Publish package
+        uses: GreenTF/upload-thunderstore-package@v2.2
+        with:
+          path: ./release
+          community: 3Dash
+          namespace: ConfiG
+          name: 6Dash
+          description: An API and an optimization mod"
+          version: ${{ steps.get-version.outputs.version }}
+          categories: Libraries Mods Tools
+          deps: BepInEx-BepInExPack_3Dash@5.4.2100
+          token: ${{ secrets.THUNDERSTORE_TOKEN }}
+          dev: true

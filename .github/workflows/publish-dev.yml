@@ -1,0 +1,25 @@
+name: Publish development
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - '**'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build
+      uses: ./.github/workflows/build.yml
+    - uses: vimtor/action-zip@v1
+      with:
+        files: artifact
+        dest: SixDash-latest.zip
+    - name: Update release
+      uses: IsaacShelton/update-existing-release@v1.3.1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: ./SixDash-latest.zip
+        release: Development
+        prerelease: true

@@ -1,0 +1,83 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build-mod:
+    name: Build Mod
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: Prepare artifact
+        id: prepare-artifact
+        run: |
+          mkdir -p artifact/BepInEx/plugins artifact/BepInEx/patchers
+          cp ./SixDash/bin/Release/netstandard2.1/SixDash.dll ./SixDash/bin/Release/netstandard2.1/SixDash.xml ./artifact/BepInEx/plugins
+          cp ./SixDash.Patcher/bin/Release/net35/SixDash.Patcher.dll ./artifact/BepInEx/patchers
+          echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: SixDash-${{ steps.prepare-artifact.outputs.short_sha }}
+          path: artifact
+
+  build-assets:
+    name: Build Assets
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64
+          - StandaloneOSX
+    steps:
+      - uses: actions/checkout@v3
+      - run: cd SixDash.Assets
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/SixDash.Assets/Library
+          key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-
+            Library-
+
+      - name: Build AssetBundle
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: SixDash.Assets
+          unityVersion: 2021.3.6f1
+          buildMethod: BuildScript.Build
+          targetPlatform: ${{ matrix.targetPlatform }}
+          buildsPath: AssetBundles
+          versioning: None
+
+      - name: Prepare artifact
+        id: prepare-artifact
+        run: |
+          mkdir -p artifact/3Dash_Data/StreamingAssets
+          sudo mv ./AssetBundles/${{ matrix.targetPlatform }}/6dash ./artifact/3Dash_Data/StreamingAssets/6dash-${{ matrix.targetPlatform }}
+          echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: SixDash-${{ steps.prepare-artifact.outputs.short_sha }}
+          path: artifact

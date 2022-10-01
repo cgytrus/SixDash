@@ -1,7 +1,0 @@
-{
-    "name": "6Dash",
-    "version_number": "0.4.0",
-    "website_url": "https://github.com/cgytrus/SixDash",
-    "description": "An API and an optimization mod",
-    "dependencies": [ "BepInEx-BepInExPack_3Dash-5.4.2100" ]
-}
