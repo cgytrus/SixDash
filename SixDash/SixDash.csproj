@@ -3,20 +3,49 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>SixDash</AssemblyName>
+    <Title>6Dash</Title>
+    <Authors>ConfiG</Authors>
+    <Description>An API and an optimization mod for 3Dash</Description>
     <Version>0.4.0</Version>
     <Company>https://github.com/cgytrus/SixDash</Company>
+    <Copyright>Copyright © ConfiG 2022</Copyright>
+
+    <PackageProjectUrl>https://6dash.cgyt.ru</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/cgytrus/SixDash</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>mod;modding;3dash;api;bepinex</PackageTags>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>10.0</LangVersion>
     <Nullable>enable</Nullable>
     <DefineConstants>UNITY_STANDALONE_WIN</DefineConstants>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>Publicizer001</NoWarn>
+    <NoWarn>Publicizer001;NU5104</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="3Dash.GameLibs" Version="1.2.0-r.0" />
     <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\meta\icon.png" Pack="true" PackagePath="" Link="icon.png" />
   </ItemGroup>
 
   <Import Project="MMHookGen.targets" />

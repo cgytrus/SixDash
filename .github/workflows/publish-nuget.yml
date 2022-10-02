@@ -1,0 +1,28 @@
+name: Publish NuGet package
+
+on:
+  workflow_dispatch:
+  release:
+    types: [ released ]
+
+jobs:
+  publish:
+    name: Pack and publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+
+      - run: cd SixDash
+
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Pack
+        run: dotnet pack -c Release --no-restore
+
+      - name: Publish package
+        run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}

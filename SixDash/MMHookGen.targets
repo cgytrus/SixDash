@@ -1,11 +1,13 @@
 ﻿<Project>
     <ItemGroup>
         <Reference Include="MMHOOK_Assembly-CSharp" HintPath="mmhook\MMHOOK_Assembly-CSharp.dll" />
-        <PackageReference Include="MonoMod.RuntimeDetour" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" />
-        <PackageReference Include="MonoMod.Utils" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" />
-        <PackageReference Include="MonoMod" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" />
-        <PackageReference Include="Mono.Cecil" Version="0.11.4" GeneratePathProperty="true" ReferenceOutputAssembly="false" />
-        <PackageReference Include="MonoMod.RuntimeDetour.HookGen" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" />
+        <Content Include="mmhook\MMHOOK_Assembly-CSharp.dll" Pack="true" PackagePath="lib\$(TargetFramework)" />
+
+        <PackageReference Include="MonoMod.RuntimeDetour" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" PrivateAssets="all" />
+        <PackageReference Include="MonoMod.Utils" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" PrivateAssets="all" />
+        <PackageReference Include="MonoMod" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" PrivateAssets="all" />
+        <PackageReference Include="Mono.Cecil" Version="0.11.4" GeneratePathProperty="true" ReferenceOutputAssembly="false" PrivateAssets="all" />
+        <PackageReference Include="MonoMod.RuntimeDetour.HookGen" Version="22.5.1.1" GeneratePathProperty="true" ReferenceOutputAssembly="false" PrivateAssets="all" />
     </ItemGroup>
 
     <PropertyGroup>
