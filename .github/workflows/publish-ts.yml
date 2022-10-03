@@ -36,7 +36,7 @@ jobs:
         uses: GreenTF/upload-thunderstore-package@v2.2
         with:
           path: ./release
-          community: 3Dash
+          community: 3dash
           namespace: ConfiG
           name: 6Dash
           description: An API and an optimization mod
