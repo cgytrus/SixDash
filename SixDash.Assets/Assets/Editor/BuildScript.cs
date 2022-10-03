@@ -15,6 +15,29 @@ public static class BuildScript {
     private static readonly string[] secrets =
         { "androidKeystorePass", "androidKeyaliasName", "androidKeyaliasPass" };
 
+    [UsedImplicitly, MenuItem("Assets/Build AssetBundles/Windows")]
+    public static void BuildInEditorWindows() => BuildInEditor(BuildTarget.StandaloneWindows64);
+
+    [UsedImplicitly, MenuItem("Assets/Build AssetBundles/OSX")]
+    public static void BuildInEditorOsx() => BuildInEditor(BuildTarget.StandaloneOSX);
+
+    [UsedImplicitly, MenuItem("Assets/Build AssetBundles/All")]
+    public static void BuildInEditorAll() {
+        BuildInEditor(BuildTarget.StandaloneWindows64);
+        BuildInEditor(BuildTarget.StandaloneOSX);
+    }
+
+    private static void BuildInEditor(BuildTarget buildTarget) {
+        const string buildPath = "AssetBundles";
+        if(!Directory.Exists(buildPath))
+            Directory.CreateDirectory(buildPath);
+        AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles(buildPath, BuildAssetBundleOptions.None, buildTarget);
+        foreach(string bundlePath in manifest.GetAllAssetBundles()) {
+            string origName = Path.Combine(buildPath, bundlePath);
+            File.Move(origName, $"{origName}-{buildTarget.ToString()}");
+        }
+    }
+
     [UsedImplicitly]
     public static void Build() {
         Dictionary<string, string> options = GetValidatedOptions();
