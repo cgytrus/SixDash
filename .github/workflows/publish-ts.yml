@@ -44,4 +44,3 @@ jobs:
           categories: Libraries Mods Tools
           deps: BepInEx-BepInExPack_3Dash@5.4.2100
           token: ${{ secrets.THUNDERSTORE_TOKEN }}
-          dev: false
