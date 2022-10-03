@@ -85,53 +85,29 @@
     <h5>Implements</h5>
     <div><a class="xref" href="SixDash.Patches.IPatch.html">IPatch</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SixDash.Patches.html">SixDash.Patches</a></h6>
   <h6><strong>Assembly</strong>: SixDash.dll</h6>
   <h5 id="SixDash_Patches_ConfigurablePatch_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ConfigurablePatch : IPatch</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ConfigurablePatch : object, IPatch</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch__ctor_ConfigFile_System_String_System_String_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch.%23ctor(ConfigFile%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch__ctor_ConfigFile_System_String_System_Nullable_System_String__System_Boolean_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch.%23ctor(ConfigFile%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Boolean%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Patches/ConfigurablePatch.cs/#L32">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Patches/ConfigurablePatch.cs/#L32">View Source</a>
   </span>
   <a id="SixDash_Patches_ConfigurablePatch__ctor_" data-uid="SixDash.Patches.ConfigurablePatch.#ctor*"></a>
-  <h4 id="SixDash_Patches_ConfigurablePatch__ctor_ConfigFile_System_String_System_String_System_Boolean_System_String_" data-uid="SixDash.Patches.ConfigurablePatch.#ctor(ConfigFile,System.String,System.String,System.Boolean,System.String)">ConfigurablePatch(ConfigFile, String, String, Boolean, String)</h4>
+  <h4 id="SixDash_Patches_ConfigurablePatch__ctor_ConfigFile_System_String_System_Nullable_System_String__System_Boolean_System_Nullable_System_String__" data-uid="SixDash.Patches.ConfigurablePatch.#ctor(ConfigFile,System.String,System.Nullable{System.String},System.Boolean,System.Nullable{System.String})">ConfigurablePatch(ConfigFile, String, Nullable&lt;String&gt;, Boolean, Nullable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Constructor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ConfigurablePatch(ConfigFile config, string section, string key, bool defaultValue, string description)</code></pre>
+    <pre><code class="lang-csharp hljs">protected ConfigurablePatch(ConfigFile config, string section, string? key, bool defaultValue, string? description)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -156,10 +132,10 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">key</span></td>
         <td><p>The key the config entry will be bound to.
-<span class="xref">System.Object.GetType()</span>.<span class="xref">System.Type.FullName</span> if null.</p>
+<see cref="!:object.GetType"></see>.<see cref="!:Type.FullName"></see> if null.</p>
 </td>
       </tr>
       <tr>
@@ -169,26 +145,9 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">description</span></td>
         <td><p>The description of the config entry.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when a config entry in the same section
-and with the same key already exists.</p>
 </td>
       </tr>
     </tbody>
@@ -197,10 +156,10 @@ and with the same key already exists.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch_enabled.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch.enabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch_enabled.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch.enabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Patches/ConfigurablePatch.cs/#L18">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Patches/ConfigurablePatch.cs/#L18">View Source</a>
   </span>
   <a id="SixDash_Patches_ConfigurablePatch_enabled_" data-uid="SixDash.Patches.ConfigurablePatch.enabled*"></a>
   <h4 id="SixDash_Patches_ConfigurablePatch_enabled" data-uid="SixDash.Patches.ConfigurablePatch.enabled">enabled</h4>
@@ -230,10 +189,10 @@ and with the same key already exists.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch_Apply.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch.Apply%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch_Apply.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch.Apply%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Patches/ConfigurablePatch.cs/#L46">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Patches/ConfigurablePatch.cs/#L46">View Source</a>
   </span>
   <a id="SixDash_Patches_ConfigurablePatch_Apply_" data-uid="SixDash.Patches.ConfigurablePatch.Apply*"></a>
   <h4 id="SixDash_Patches_ConfigurablePatch_Apply" data-uid="SixDash.Patches.ConfigurablePatch.Apply">Apply()</h4>
@@ -256,10 +215,10 @@ and with the same key already exists.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Patches_ConfigurablePatch.md&amp;value=---%0Auid%3A%20SixDash.Patches.ConfigurablePatch%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Patches/ConfigurablePatch.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Patches/ConfigurablePatch.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

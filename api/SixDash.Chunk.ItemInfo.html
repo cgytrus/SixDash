@@ -81,53 +81,29 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Chunk.ItemInfo</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SixDash.html">SixDash</a></h6>
   <h6><strong>Assembly</strong>: SixDash.dll</h6>
   <h5 id="SixDash_Chunk_ItemInfo_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ItemInfo</code></pre>
+    <pre><code class="lang-csharp hljs">public class ItemInfo : object</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo__ctor_System_String_Vector3Int_System_Int32_VertexPath_EndOfPathInstruction_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.%23ctor(System.String%2CVector3Int%2CSystem.Int32%2CVertexPath%2CEndOfPathInstruction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo__ctor_System_String_Vector3_System_Single_VertexPath_EndOfPathInstruction_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.%23ctor(System.String%2CVector3%2CSystem.Single%2CVertexPath%2CEndOfPathInstruction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L53">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L61">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo__ctor_" data-uid="SixDash.Chunk.ItemInfo.#ctor*"></a>
-  <h4 id="SixDash_Chunk_ItemInfo__ctor_System_String_Vector3Int_System_Int32_VertexPath_EndOfPathInstruction_" data-uid="SixDash.Chunk.ItemInfo.#ctor(System.String,Vector3Int,System.Int32,VertexPath,EndOfPathInstruction)">ItemInfo(String, Vector3Int, Int32, VertexPath, EndOfPathInstruction)</h4>
+  <h4 id="SixDash_Chunk_ItemInfo__ctor_System_String_Vector3_System_Single_VertexPath_EndOfPathInstruction_" data-uid="SixDash.Chunk.ItemInfo.#ctor(System.String,Vector3,System.Single,VertexPath,EndOfPathInstruction)">ItemInfo(String, Vector3, Single, VertexPath, EndOfPathInstruction)</h4>
   <div class="markdown level1 summary"><p>Constructor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ItemInfo(string id, Vector3Int position, int rotation, VertexPath path, EndOfPathInstruction endOfPath)</code></pre>
+    <pre><code class="lang-csharp hljs">public ItemInfo(string id, Vector3 position, float rotation, VertexPath path, EndOfPathInstruction endOfPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -146,13 +122,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Vector3Int</span></td>
+        <td><span class="xref">Vector3</span></td>
         <td><span class="parametername">position</span></td>
         <td><p>Item position.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">rotation</span></td>
         <td><p>Item rotation.</p>
 </td>
@@ -175,10 +151,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_id.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_id.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L82">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L90">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_id_" data-uid="SixDash.Chunk.ItemInfo.id*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_id" data-uid="SixDash.Chunk.ItemInfo.id">id</h4>
@@ -206,10 +182,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_inAnimationEnd.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.inAnimationEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_inAnimationEnd.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.inAnimationEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L111">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L119">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_inAnimationEnd_" data-uid="SixDash.Chunk.ItemInfo.inAnimationEnd*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_inAnimationEnd" data-uid="SixDash.Chunk.ItemInfo.inAnimationEnd">inAnimationEnd</h4>
@@ -237,10 +213,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_model.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.model%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_model.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.model%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L116">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L124">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_model_" data-uid="SixDash.Chunk.ItemInfo.model*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_model" data-uid="SixDash.Chunk.ItemInfo.model">model</h4>
@@ -268,10 +244,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_outAnimationEnd.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.outAnimationEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_outAnimationEnd.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.outAnimationEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L107">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L115">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_outAnimationEnd_" data-uid="SixDash.Chunk.ItemInfo.outAnimationEnd*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_outAnimationEnd" data-uid="SixDash.Chunk.ItemInfo.outAnimationEnd">outAnimationEnd</h4>
@@ -299,10 +275,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_pathRotation.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.pathRotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_pathRotation.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.pathRotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L120">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L128">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_pathRotation_" data-uid="SixDash.Chunk.ItemInfo.pathRotation*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_pathRotation" data-uid="SixDash.Chunk.ItemInfo.pathRotation">pathRotation</h4>
@@ -330,10 +306,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_position.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_position.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L86">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L94">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_position_" data-uid="SixDash.Chunk.ItemInfo.position*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_position" data-uid="SixDash.Chunk.ItemInfo.position">position</h4>
@@ -342,7 +318,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3Int position { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 position { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -354,17 +330,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Vector3Int</span></td>
+        <td><span class="xref">Vector3</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_rotation.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.rotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_rotation.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.rotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L90">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L98">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_rotation_" data-uid="SixDash.Chunk.ItemInfo.rotation*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_rotation" data-uid="SixDash.Chunk.ItemInfo.rotation">rotation</h4>
@@ -373,7 +349,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int rotation { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float rotation { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -385,17 +361,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><span class="xref">System.Single</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_time.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.time%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_time.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.time%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L103">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L111">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_time_" data-uid="SixDash.Chunk.ItemInfo.time*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_time" data-uid="SixDash.Chunk.ItemInfo.time">time</h4>
@@ -423,10 +399,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_worldPosition.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.worldPosition%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_worldPosition.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.worldPosition%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L94">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L102">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_worldPosition_" data-uid="SixDash.Chunk.ItemInfo.worldPosition*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_worldPosition" data-uid="SixDash.Chunk.ItemInfo.worldPosition">worldPosition</h4>
@@ -454,10 +430,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_worldRotation.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.worldRotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_worldRotation.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.worldRotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L98">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L106">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_worldRotation_" data-uid="SixDash.Chunk.ItemInfo.worldRotation*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_worldRotation" data-uid="SixDash.Chunk.ItemInfo.worldRotation">worldRotation</h4>
@@ -487,10 +463,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_CanCullFaceAgainstModel_SixDash_Chunk_ItemInfo_SixDash_ItemModels_Face_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.CanCullFaceAgainstModel(SixDash.Chunk.ItemInfo%2CSixDash.ItemModels.Face)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_CanCullFaceAgainstModel_SixDash_Chunk_ItemInfo_SixDash_ItemModels_Face_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.CanCullFaceAgainstModel(SixDash.Chunk.ItemInfo%2CSixDash.ItemModels.Face)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L199">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L197">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_CanCullFaceAgainstModel_" data-uid="SixDash.Chunk.ItemInfo.CanCullFaceAgainstModel*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_CanCullFaceAgainstModel_SixDash_Chunk_ItemInfo_SixDash_ItemModels_Face_" data-uid="SixDash.Chunk.ItemInfo.CanCullFaceAgainstModel(SixDash.Chunk.ItemInfo,SixDash.ItemModels.Face)">CanCullFaceAgainstModel(Chunk.ItemInfo, ItemModels.Face)</h4>
@@ -544,19 +520,19 @@ can be culled against this item's model.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_DirectionToWorldSpace_Vector3Int_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.DirectionToWorldSpace(Vector3Int)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_DirectionToPathSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.DirectionToPathSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L177">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L175">View Source</a>
   </span>
-  <a id="SixDash_Chunk_ItemInfo_DirectionToWorldSpace_" data-uid="SixDash.Chunk.ItemInfo.DirectionToWorldSpace*"></a>
-  <h4 id="SixDash_Chunk_ItemInfo_DirectionToWorldSpace_Vector3Int_" data-uid="SixDash.Chunk.ItemInfo.DirectionToWorldSpace(Vector3Int)">DirectionToWorldSpace(Vector3Int)</h4>
-  <div class="markdown level1 summary"><p>Converts a direction from local to world space.</p>
+  <a id="SixDash_Chunk_ItemInfo_DirectionToPathSpace_" data-uid="SixDash.Chunk.ItemInfo.DirectionToPathSpace*"></a>
+  <h4 id="SixDash_Chunk_ItemInfo_DirectionToPathSpace_Vector3_" data-uid="SixDash.Chunk.ItemInfo.DirectionToPathSpace(Vector3)">DirectionToPathSpace(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Converts a direction from local to path space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 DirectionToWorldSpace(Vector3Int direction)</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 DirectionToPathSpace(Vector3 direction)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -569,7 +545,7 @@ can be culled against this item's model.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Vector3Int</span></td>
+        <td><span class="xref">Vector3</span></td>
         <td><span class="parametername">direction</span></td>
         <td><p>The direction in local space.</p>
 </td>
@@ -587,67 +563,17 @@ can be culled against this item's model.</p>
     <tbody>
       <tr>
         <td><span class="xref">Vector3</span></td>
-        <td><p>The direction in world space.</p>
+        <td><p>The direction in path space.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_DirectionToWorldSpaceInt_Vector3Int_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt(Vector3Int)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_OffsetToPathSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.OffsetToPathSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L167">View Source</a>
-  </span>
-  <a id="SixDash_Chunk_ItemInfo_DirectionToWorldSpaceInt_" data-uid="SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt*"></a>
-  <h4 id="SixDash_Chunk_ItemInfo_DirectionToWorldSpaceInt_Vector3Int_" data-uid="SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt(Vector3Int)">DirectionToWorldSpaceInt(Vector3Int)</h4>
-  <div class="markdown level1 summary"><p>Converts an integer direction from local to world space.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3Int DirectionToWorldSpaceInt(Vector3Int direction)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector3Int</span></td>
-        <td><span class="parametername">direction</span></td>
-        <td><p>The direction in local space.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector3Int</span></td>
-        <td><p>The direction in world space.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_OffsetToPathSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.OffsetToPathSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L137">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L145">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_OffsetToPathSpace_" data-uid="SixDash.Chunk.ItemInfo.OffsetToPathSpace*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_OffsetToPathSpace_Vector3_" data-uid="SixDash.Chunk.ItemInfo.OffsetToPathSpace(Vector3)">OffsetToPathSpace(Vector3)</h4>
@@ -694,10 +620,10 @@ can be culled against this item's model.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_PathSpaceToWorldSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.PathSpaceToWorldSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_PathSpaceToWorldSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.PathSpaceToWorldSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L184">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L182">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_PathSpaceToWorldSpace_" data-uid="SixDash.Chunk.ItemInfo.PathSpaceToWorldSpace*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_PathSpaceToWorldSpace_Vector3_" data-uid="SixDash.Chunk.ItemInfo.PathSpaceToWorldSpace(Vector3)">PathSpaceToWorldSpace(Vector3)</h4>
@@ -744,10 +670,10 @@ can be culled against this item's model.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_VertexToPathSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.VertexToPathSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_VertexToPathSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.VertexToPathSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L148">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L156">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_VertexToPathSpace_" data-uid="SixDash.Chunk.ItemInfo.VertexToPathSpace*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_VertexToPathSpace_Vector3_" data-uid="SixDash.Chunk.ItemInfo.VertexToPathSpace(Vector3)">VertexToPathSpace(Vector3)</h4>
@@ -794,10 +720,10 @@ can be culled against this item's model.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo_VertexToWorldSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.VertexToWorldSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo_VertexToWorldSpace_Vector3_.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo.VertexToWorldSpace(Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L155">View Source</a>
+    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L163">View Source</a>
   </span>
   <a id="SixDash_Chunk_ItemInfo_VertexToWorldSpace_" data-uid="SixDash.Chunk.ItemInfo.VertexToWorldSpace*"></a>
   <h4 id="SixDash_Chunk_ItemInfo_VertexToWorldSpace_Vector3_" data-uid="SixDash.Chunk.ItemInfo.VertexToWorldSpace(Vector3)">VertexToWorldSpace(Vector3)</h4>
@@ -850,10 +776,10 @@ can be culled against this item's model.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/cgytrus/SixDash/new/main/apiSpec/new?filename=SixDash_Chunk_ItemInfo.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/cgytrus/SixDash/new/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/apiSpec/new?filename=SixDash_Chunk_ItemInfo.md&amp;value=---%0Auid%3A%20SixDash.Chunk.ItemInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/cgytrus/SixDash/blob/main/SixDash/src/Chunk.cs/#L43" class="contribution-link">View Source</a>
+                    <a href="https://github.com/cgytrus/SixDash/blob/0bb5b4ded0b40efc343585dd48b0aa9c7bc4c42b/SixDash/src/Chunk.cs/#L51" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -2553,12 +2553,31 @@ references:
   isSpec: "True"
   fullName: SixDash.API.Player.initialSpeed
   nameWithType: Player.initialSpeed
+- uid: SixDash.API.Player.pathFollowerInstance
+  name: pathFollowerInstance
+  href: api/SixDash.API.Player.html#SixDash_API_Player_pathFollowerInstance
+  commentId: P:SixDash.API.Player.pathFollowerInstance
+  fullName: SixDash.API.Player.pathFollowerInstance
+  nameWithType: Player.pathFollowerInstance
+- uid: SixDash.API.Player.pathFollowerInstance*
+  name: pathFollowerInstance
+  href: api/SixDash.API.Player.html#SixDash_API_Player_pathFollowerInstance_
+  commentId: Overload:SixDash.API.Player.pathFollowerInstance
+  isSpec: "True"
+  fullName: SixDash.API.Player.pathFollowerInstance
+  nameWithType: Player.pathFollowerInstance
 - uid: SixDash.API.Player.respawn
   name: respawn
   href: api/SixDash.API.Player.html#SixDash_API_Player_respawn
   commentId: E:SixDash.API.Player.respawn
   fullName: SixDash.API.Player.respawn
   nameWithType: Player.respawn
+- uid: SixDash.API.Player.respawnTime
+  name: respawnTime
+  href: api/SixDash.API.Player.html#SixDash_API_Player_respawnTime
+  commentId: E:SixDash.API.Player.respawnTime
+  fullName: SixDash.API.Player.respawnTime
+  nameWithType: Player.respawnTime
 - uid: SixDash.API.Player.scriptInstance
   name: scriptInstance
   href: api/SixDash.API.Player.html#SixDash_API_Player_scriptInstance
@@ -2591,6 +2610,12 @@ references:
   isSpec: "True"
   fullName: SixDash.API.Player.transformInstance
   nameWithType: Player.transformInstance
+- uid: SixDash.API.Player.VanillaRespawnTime
+  name: VanillaRespawnTime
+  href: api/SixDash.API.Player.html#SixDash_API_Player_VanillaRespawnTime
+  commentId: F:SixDash.API.Player.VanillaRespawnTime
+  fullName: SixDash.API.Player.VanillaRespawnTime
+  nameWithType: Player.VanillaRespawnTime
 - uid: SixDash.API.Player.wouldDie
   name: wouldDie
   href: api/SixDash.API.Player.html#SixDash_API_Player_wouldDie
@@ -2794,6 +2819,12 @@ references:
   isSpec: "True"
   fullName: SixDash.API.World.levelTime
   nameWithType: World.levelTime
+- uid: SixDash.API.World.levelUnload
+  name: levelUnload
+  href: api/SixDash.API.World.html#SixDash_API_World_levelUnload
+  commentId: E:SixDash.API.World.levelUnload
+  fullName: SixDash.API.World.levelUnload
+  nameWithType: World.levelUnload
 - uid: SixDash.API.World.levelUpdate
   name: levelUpdate
   href: api/SixDash.API.World.html#SixDash_API_World_levelUpdate
@@ -2832,6 +2863,19 @@ references:
   isSpec: "True"
   fullName: SixDash.Chunk.active
   nameWithType: Chunk.active
+- uid: SixDash.Chunk.GetItemsAt(Vector3)
+  name: GetItemsAt(Vector3)
+  href: api/SixDash.Chunk.html#SixDash_Chunk_GetItemsAt_Vector3_
+  commentId: M:SixDash.Chunk.GetItemsAt(Vector3)
+  fullName: SixDash.Chunk.GetItemsAt(Vector3)
+  nameWithType: Chunk.GetItemsAt(Vector3)
+- uid: SixDash.Chunk.GetItemsAt*
+  name: GetItemsAt
+  href: api/SixDash.Chunk.html#SixDash_Chunk_GetItemsAt_
+  commentId: Overload:SixDash.Chunk.GetItemsAt
+  isSpec: "True"
+  fullName: SixDash.Chunk.GetItemsAt
+  nameWithType: Chunk.GetItemsAt
 - uid: SixDash.Chunk.InAnimSpeed
   name: InAnimSpeed
   href: api/SixDash.Chunk.html#SixDash_Chunk_InAnimSpeed
@@ -2850,12 +2894,12 @@ references:
   commentId: T:SixDash.Chunk.ItemInfo
   fullName: SixDash.Chunk.ItemInfo
   nameWithType: Chunk.ItemInfo
-- uid: SixDash.Chunk.ItemInfo.#ctor(System.String,Vector3Int,System.Int32,VertexPath,EndOfPathInstruction)
-  name: ItemInfo(String, Vector3Int, Int32, VertexPath, EndOfPathInstruction)
-  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo__ctor_System_String_Vector3Int_System_Int32_VertexPath_EndOfPathInstruction_
-  commentId: M:SixDash.Chunk.ItemInfo.#ctor(System.String,Vector3Int,System.Int32,VertexPath,EndOfPathInstruction)
-  fullName: SixDash.Chunk.ItemInfo.ItemInfo(System.String, Vector3Int, System.Int32, VertexPath, EndOfPathInstruction)
-  nameWithType: Chunk.ItemInfo.ItemInfo(String, Vector3Int, Int32, VertexPath, EndOfPathInstruction)
+- uid: SixDash.Chunk.ItemInfo.#ctor(System.String,Vector3,System.Single,VertexPath,EndOfPathInstruction)
+  name: ItemInfo(String, Vector3, Single, VertexPath, EndOfPathInstruction)
+  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo__ctor_System_String_Vector3_System_Single_VertexPath_EndOfPathInstruction_
+  commentId: M:SixDash.Chunk.ItemInfo.#ctor(System.String,Vector3,System.Single,VertexPath,EndOfPathInstruction)
+  fullName: SixDash.Chunk.ItemInfo.ItemInfo(System.String, Vector3, System.Single, VertexPath, EndOfPathInstruction)
+  nameWithType: Chunk.ItemInfo.ItemInfo(String, Vector3, Single, VertexPath, EndOfPathInstruction)
 - uid: SixDash.Chunk.ItemInfo.#ctor*
   name: ItemInfo
   href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo__ctor_
@@ -2876,32 +2920,19 @@ references:
   isSpec: "True"
   fullName: SixDash.Chunk.ItemInfo.CanCullFaceAgainstModel
   nameWithType: Chunk.ItemInfo.CanCullFaceAgainstModel
-- uid: SixDash.Chunk.ItemInfo.DirectionToWorldSpace(Vector3Int)
-  name: DirectionToWorldSpace(Vector3Int)
-  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo_DirectionToWorldSpace_Vector3Int_
-  commentId: M:SixDash.Chunk.ItemInfo.DirectionToWorldSpace(Vector3Int)
-  fullName: SixDash.Chunk.ItemInfo.DirectionToWorldSpace(Vector3Int)
-  nameWithType: Chunk.ItemInfo.DirectionToWorldSpace(Vector3Int)
-- uid: SixDash.Chunk.ItemInfo.DirectionToWorldSpace*
-  name: DirectionToWorldSpace
-  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo_DirectionToWorldSpace_
-  commentId: Overload:SixDash.Chunk.ItemInfo.DirectionToWorldSpace
+- uid: SixDash.Chunk.ItemInfo.DirectionToPathSpace(Vector3)
+  name: DirectionToPathSpace(Vector3)
+  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo_DirectionToPathSpace_Vector3_
+  commentId: M:SixDash.Chunk.ItemInfo.DirectionToPathSpace(Vector3)
+  fullName: SixDash.Chunk.ItemInfo.DirectionToPathSpace(Vector3)
+  nameWithType: Chunk.ItemInfo.DirectionToPathSpace(Vector3)
+- uid: SixDash.Chunk.ItemInfo.DirectionToPathSpace*
+  name: DirectionToPathSpace
+  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo_DirectionToPathSpace_
+  commentId: Overload:SixDash.Chunk.ItemInfo.DirectionToPathSpace
   isSpec: "True"
-  fullName: SixDash.Chunk.ItemInfo.DirectionToWorldSpace
-  nameWithType: Chunk.ItemInfo.DirectionToWorldSpace
-- uid: SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt(Vector3Int)
-  name: DirectionToWorldSpaceInt(Vector3Int)
-  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo_DirectionToWorldSpaceInt_Vector3Int_
-  commentId: M:SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt(Vector3Int)
-  fullName: SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt(Vector3Int)
-  nameWithType: Chunk.ItemInfo.DirectionToWorldSpaceInt(Vector3Int)
-- uid: SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt*
-  name: DirectionToWorldSpaceInt
-  href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo_DirectionToWorldSpaceInt_
-  commentId: Overload:SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt
-  isSpec: "True"
-  fullName: SixDash.Chunk.ItemInfo.DirectionToWorldSpaceInt
-  nameWithType: Chunk.ItemInfo.DirectionToWorldSpaceInt
+  fullName: SixDash.Chunk.ItemInfo.DirectionToPathSpace
+  nameWithType: Chunk.ItemInfo.DirectionToPathSpace
 - uid: SixDash.Chunk.ItemInfo.id
   name: id
   href: api/SixDash.Chunk.ItemInfo.html#SixDash_Chunk_ItemInfo_id
@@ -3110,6 +3141,12 @@ references:
   isSpec: "True"
   fullName: SixDash.Chunk.items
   nameWithType: Chunk.items
+- uid: SixDash.Chunk.MaxPositionInaccuracy
+  name: MaxPositionInaccuracy
+  href: api/SixDash.Chunk.html#SixDash_Chunk_MaxPositionInaccuracy
+  commentId: F:SixDash.Chunk.MaxPositionInaccuracy
+  fullName: SixDash.Chunk.MaxPositionInaccuracy
+  nameWithType: Chunk.MaxPositionInaccuracy
 - uid: SixDash.Chunk.OutAnimSpeed
   name: OutAnimSpeed
   href: api/SixDash.Chunk.html#SixDash_Chunk_OutAnimSpeed
@@ -3148,12 +3185,12 @@ references:
   isSpec: "True"
   fullName: SixDash.Chunk.ScaleOut
   nameWithType: Chunk.ScaleOut
-- uid: SixDash.Chunk.SetItem(System.String,Vector3Int,System.Int32,GameObject)
-  name: SetItem(String, Vector3Int, Int32, GameObject)
-  href: api/SixDash.Chunk.html#SixDash_Chunk_SetItem_System_String_Vector3Int_System_Int32_GameObject_
-  commentId: M:SixDash.Chunk.SetItem(System.String,Vector3Int,System.Int32,GameObject)
-  fullName: SixDash.Chunk.SetItem(System.String, Vector3Int, System.Int32, GameObject)
-  nameWithType: Chunk.SetItem(String, Vector3Int, Int32, GameObject)
+- uid: SixDash.Chunk.SetItem(System.String,Vector3,System.Single,GameObject)
+  name: SetItem(String, Vector3, Single, GameObject)
+  href: api/SixDash.Chunk.html#SixDash_Chunk_SetItem_System_String_Vector3_System_Single_GameObject_
+  commentId: M:SixDash.Chunk.SetItem(System.String,Vector3,System.Single,GameObject)
+  fullName: SixDash.Chunk.SetItem(System.String, Vector3, System.Single, GameObject)
+  nameWithType: Chunk.SetItem(String, Vector3, Single, GameObject)
 - uid: SixDash.Chunk.SetItem*
   name: SetItem
   href: api/SixDash.Chunk.html#SixDash_Chunk_SetItem_
@@ -3217,12 +3254,15 @@ references:
   commentId: T:SixDash.Patches.ConfigurablePatch
   fullName: SixDash.Patches.ConfigurablePatch
   nameWithType: ConfigurablePatch
-- uid: SixDash.Patches.ConfigurablePatch.#ctor(ConfigFile,System.String,System.String,System.Boolean,System.String)
-  name: ConfigurablePatch(ConfigFile, String, String, Boolean, String)
-  href: api/SixDash.Patches.ConfigurablePatch.html#SixDash_Patches_ConfigurablePatch__ctor_ConfigFile_System_String_System_String_System_Boolean_System_String_
-  commentId: M:SixDash.Patches.ConfigurablePatch.#ctor(ConfigFile,System.String,System.String,System.Boolean,System.String)
-  fullName: SixDash.Patches.ConfigurablePatch.ConfigurablePatch(ConfigFile, System.String, System.String, System.Boolean, System.String)
-  nameWithType: ConfigurablePatch.ConfigurablePatch(ConfigFile, String, String, Boolean, String)
+- uid: SixDash.Patches.ConfigurablePatch.#ctor(ConfigFile,System.String,System.Nullable{System.String},System.Boolean,System.Nullable{System.String})
+  name: ConfigurablePatch(ConfigFile, String, Nullable<String>, Boolean, Nullable<String>)
+  href: api/SixDash.Patches.ConfigurablePatch.html#SixDash_Patches_ConfigurablePatch__ctor_ConfigFile_System_String_System_Nullable_System_String__System_Boolean_System_Nullable_System_String__
+  commentId: M:SixDash.Patches.ConfigurablePatch.#ctor(ConfigFile,System.String,System.Nullable{System.String},System.Boolean,System.Nullable{System.String})
+  name.vb: ConfigurablePatch(ConfigFile, String, Nullable(Of String), Boolean, Nullable(Of String))
+  fullName: SixDash.Patches.ConfigurablePatch.ConfigurablePatch(ConfigFile, System.String, System.Nullable<System.String>, System.Boolean, System.Nullable<System.String>)
+  fullName.vb: SixDash.Patches.ConfigurablePatch.ConfigurablePatch(ConfigFile, System.String, System.Nullable(Of System.String), System.Boolean, System.Nullable(Of System.String))
+  nameWithType: ConfigurablePatch.ConfigurablePatch(ConfigFile, String, Nullable<String>, Boolean, Nullable<String>)
+  nameWithType.vb: ConfigurablePatch.ConfigurablePatch(ConfigFile, String, Nullable(Of String), Boolean, Nullable(Of String))
 - uid: SixDash.Patches.ConfigurablePatch.#ctor*
   name: ConfigurablePatch
   href: api/SixDash.Patches.ConfigurablePatch.html#SixDash_Patches_ConfigurablePatch__ctor_
@@ -3385,11 +3425,11 @@ references:
   commentId: F:SixDash.Util.EasingMode.Out
   fullName: SixDash.Util.EasingMode.Out
   nameWithType: Util.EasingMode.Out
-- uid: SixDash.Util.FindResourceOfTypeWithName(System.Type,System.String)
+- uid: SixDash.Util.FindResourceOfTypeWithName(Type,System.String)
   name: FindResourceOfTypeWithName(Type, String)
-  href: api/SixDash.Util.html#SixDash_Util_FindResourceOfTypeWithName_System_Type_System_String_
-  commentId: M:SixDash.Util.FindResourceOfTypeWithName(System.Type,System.String)
-  fullName: SixDash.Util.FindResourceOfTypeWithName(System.Type, System.String)
+  href: api/SixDash.Util.html#SixDash_Util_FindResourceOfTypeWithName_Type_System_String_
+  commentId: M:SixDash.Util.FindResourceOfTypeWithName(Type,System.String)
+  fullName: SixDash.Util.FindResourceOfTypeWithName(Type, System.String)
   nameWithType: Util.FindResourceOfTypeWithName(Type, String)
 - uid: SixDash.Util.FindResourceOfTypeWithName*
   name: FindResourceOfTypeWithName
@@ -3407,22 +3447,22 @@ references:
   fullName.vb: SixDash.Util.FindResourceOfTypeWithName(Of T)(System.String)
   nameWithType: Util.FindResourceOfTypeWithName<T>(String)
   nameWithType.vb: Util.FindResourceOfTypeWithName(Of T)(String)
-- uid: SixDash.Util.ForEachImplementation(System.Reflection.Assembly,System.Type,System.Action{System.Type})
+- uid: SixDash.Util.ForEachImplementation(Assembly,Type,Action{Type})
   name: ForEachImplementation(Assembly, Type, Action<Type>)
-  href: api/SixDash.Util.html#SixDash_Util_ForEachImplementation_System_Reflection_Assembly_System_Type_System_Action_System_Type__
-  commentId: M:SixDash.Util.ForEachImplementation(System.Reflection.Assembly,System.Type,System.Action{System.Type})
+  href: api/SixDash.Util.html#SixDash_Util_ForEachImplementation_Assembly_Type_Action_Type__
+  commentId: M:SixDash.Util.ForEachImplementation(Assembly,Type,Action{Type})
   name.vb: ForEachImplementation(Assembly, Type, Action(Of Type))
-  fullName: SixDash.Util.ForEachImplementation(System.Reflection.Assembly, System.Type, System.Action<System.Type>)
-  fullName.vb: SixDash.Util.ForEachImplementation(System.Reflection.Assembly, System.Type, System.Action(Of System.Type))
+  fullName: SixDash.Util.ForEachImplementation(Assembly, Type, Action<Type>)
+  fullName.vb: SixDash.Util.ForEachImplementation(Assembly, Type, Action(Of Type))
   nameWithType: Util.ForEachImplementation(Assembly, Type, Action<Type>)
   nameWithType.vb: Util.ForEachImplementation(Assembly, Type, Action(Of Type))
-- uid: SixDash.Util.ForEachImplementation(System.Type,System.Action{System.Type})
+- uid: SixDash.Util.ForEachImplementation(Type,Action{Type})
   name: ForEachImplementation(Type, Action<Type>)
-  href: api/SixDash.Util.html#SixDash_Util_ForEachImplementation_System_Type_System_Action_System_Type__
-  commentId: M:SixDash.Util.ForEachImplementation(System.Type,System.Action{System.Type})
+  href: api/SixDash.Util.html#SixDash_Util_ForEachImplementation_Type_Action_Type__
+  commentId: M:SixDash.Util.ForEachImplementation(Type,Action{Type})
   name.vb: ForEachImplementation(Type, Action(Of Type))
-  fullName: SixDash.Util.ForEachImplementation(System.Type, System.Action<System.Type>)
-  fullName.vb: SixDash.Util.ForEachImplementation(System.Type, System.Action(Of System.Type))
+  fullName: SixDash.Util.ForEachImplementation(Type, Action<Type>)
+  fullName.vb: SixDash.Util.ForEachImplementation(Type, Action(Of Type))
   nameWithType: Util.ForEachImplementation(Type, Action<Type>)
   nameWithType.vb: Util.ForEachImplementation(Type, Action(Of Type))
 - uid: SixDash.Util.ForEachImplementation*
@@ -3432,3 +3472,28 @@ references:
   isSpec: "True"
   fullName: SixDash.Util.ForEachImplementation
   nameWithType: Util.ForEachImplementation
+- uid: SixDash.Util.LoadPlatformAssetBundle(System.String)
+  name: LoadPlatformAssetBundle(String)
+  href: api/SixDash.Util.html#SixDash_Util_LoadPlatformAssetBundle_System_String_
+  commentId: M:SixDash.Util.LoadPlatformAssetBundle(System.String)
+  fullName: SixDash.Util.LoadPlatformAssetBundle(System.String)
+  nameWithType: Util.LoadPlatformAssetBundle(String)
+- uid: SixDash.Util.LoadPlatformAssetBundle*
+  name: LoadPlatformAssetBundle
+  href: api/SixDash.Util.html#SixDash_Util_LoadPlatformAssetBundle_
+  commentId: Overload:SixDash.Util.LoadPlatformAssetBundle
+  isSpec: "True"
+  fullName: SixDash.Util.LoadPlatformAssetBundle
+  nameWithType: Util.LoadPlatformAssetBundle
+- uid: System.Runtime.CompilerServices
+  name: System.Runtime.CompilerServices
+  href: api/System.Runtime.CompilerServices.html
+  commentId: N:System.Runtime.CompilerServices
+  fullName: System.Runtime.CompilerServices
+  nameWithType: System.Runtime.CompilerServices
+- uid: System.Runtime.CompilerServices.IsExternalInit
+  name: IsExternalInit
+  href: api/System.Runtime.CompilerServices.IsExternalInit.html
+  commentId: T:System.Runtime.CompilerServices.IsExternalInit
+  fullName: System.Runtime.CompilerServices.IsExternalInit
+  nameWithType: IsExternalInit
