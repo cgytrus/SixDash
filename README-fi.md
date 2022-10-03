@@ -35,6 +35,13 @@ ei saatavilla (*vielä*)
 ## Documentaatio
 Saatavilla osoitteessa https://6dash.cgyt.ru ja XML tiedostona (englaniksi)
 
+## Osallistuminen
+1. Kloonaa tämä ns. [arkisto](https://github.com/cgytrus/SixDash)
+2. Rakenna (Se on tärkeää rakentaa arkisto ennenkuin muokkaat koodia, koska se generoi MMHOOK assemblyn)
+3. Tee uusi branchi
+4. Tee sinun halutut muutokset
+5. Tee pull requesti siitä branchista
+
 ## Muut käytetyt repositoryt
 - [popcron/gizmos](https://github.com/popcron/gizmos)
   ([MIT](https://github.com/popcron/gizmos/blob/master/LICENSE))
