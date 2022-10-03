@@ -20,7 +20,17 @@ An API and an optimization mod
 ## Changelog
 
 #### 0.4.0
-* TODO
+* added checkpoint api
+* added xml documentation
+* fixed bug with broken camera animation after respawn on a checkpoint with speedhack lower than ~0.49
+* added IsExternalInit for full C# 9 records support
+* added online api
+* cache downloaded levels
+* changed item positions and rotations to floats
+* made respawn time modifiable
+* added path follower instance
+* added World.levelUnload (and fixed playtesting)
+* now distributed as a nuget package
 
 #### 0.3.0
 * initial Thunderstore release

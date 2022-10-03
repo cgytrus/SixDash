@@ -35,6 +35,13 @@ not available (*yet*)
 ## Documentation
 Available at https://6dash.cgyt.ru and as XML documentation
 
+## Contributing
+1. Clone the [repository](https://github.com/cgytrus/SixDash)
+2. Build (it's important to build before editing the code, as that will generate the MMHOOK assembly)
+3. Create a separate branch
+4. Commit your changes
+5. Create a pull request from that branch
+
 ## Other used repositories
 - [popcron/gizmos](https://github.com/popcron/gizmos)
   ([MIT](https://github.com/popcron/gizmos/blob/master/LICENSE))
