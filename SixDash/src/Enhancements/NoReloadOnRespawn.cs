@@ -58,6 +58,18 @@ internal class NoReloadOnRespawn : IPatch {
             if(self.SkyMat2)
                 self.SetStarsColor(Color.HSVToRGB(h, s, v * 0.4f));
         };
+        // copy-pasted because delugedrop didn't inherit from LevelManager
+        // delugedrop please fix ur code before abandoning 3dash 🙏
+        On.LevelManagerEditor.Update += (_, self) => {
+            Color.RGBToHSV(DistanceToColor(self.levelColor, PathFollower.distanceTravelled), out float h, out float s, out float v);
+            v *= self.valueMultiplier;
+            Color color = Color.HSVToRGB(h, s, v);
+            if(LevelEditor.backgroundId != 2)
+                self.SetSkyboxColor(color);
+            self.groundMat.color = color;
+            if(self.SkyMat2)
+                self.SetStarsColor(Color.HSVToRGB(h, s, v * 0.4f));
+        };
 
         Checkpoint.place += SaveCheckpoint;
     }
