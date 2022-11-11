@@ -19,6 +19,10 @@ An API and an optimization mod
 
 ## Changelog
 
+#### 0.4.1
+* fixed color changers not working in custom levels
+* changed mod icon
+
 #### 0.4.0
 * added checkpoint api
 * added xml documentation
